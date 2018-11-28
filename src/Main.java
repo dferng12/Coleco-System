@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import logicControllers.DAO;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -20,8 +21,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
     }
-
-
     public static void main(String[] args) {
         launch(args);
     }
