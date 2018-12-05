@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.List;
+
 public abstract class User {
     private String name;
     private String subname;
@@ -9,4 +11,8 @@ public abstract class User {
     private Address address;
     private int phoneNumber;
     private AuthInfo authInfo;
+
+    public List<Subject> getSubjects() {
+        return null;
+    }
 }

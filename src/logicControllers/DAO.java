@@ -26,7 +26,7 @@ public class DAO {
         }
     }
 
-    public User getUser(String query){
+    public User getUser(String DNI){
         return null;
     }
 
@@ -50,7 +50,7 @@ public class DAO {
 
     private boolean connect(){
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ColecoSystem", "colecouser", "colecopass");
             return connection.isValid(50000);
         }catch (ClassNotFoundException | SQLException e){
