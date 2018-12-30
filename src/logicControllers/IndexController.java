@@ -10,7 +10,7 @@ public class IndexController {
     private DAO dao;
 
     public IndexController(String dni){
-        this.dao = new DAO();
+        this.dao = new DAOAuth();
         this.user = dao.getUser(dni);
     }
 

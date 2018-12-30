@@ -1,0 +1,126 @@
+2018-12-30 16:24:54 WARN  Main:17 - HEY
+2018-12-30 16:24:54 WARN  DAO:57 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:24:54 WARN  DAO:57 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:29:37 WARN  Main:18 - HEY
+2018-12-30 16:29:37 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:29:37 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:31:47 WARN  Main:18 - HEY
+2018-12-30 16:31:50 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:32:05 WARN  Main:18 - HEY
+2018-12-30 16:32:59 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:36:23 WARN  Main:18 - HEY
+2018-12-30 16:36:23 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 16:36:23 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 16:36:33 WARN  Main:18 - HEY
+2018-12-30 16:36:33 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:36:33 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:46:11 WARN  Main:18 - HEY
+2018-12-30 16:46:11 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 16:46:12 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 16:49:29 WARN  Main:18 - HEY
+2018-12-30 16:49:29 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:49:30 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:51:58 WARN  Main:18 - HEY
+2018-12-30 16:51:58 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:51:58 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:53:11 WARN  Main:18 - HEY
+2018-12-30 16:53:11 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:53:12 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:54:59 WARN  Main:18 - HEY
+2018-12-30 16:54:59 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:54:59 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:59:01 WARN  Main:18 - HEY
+2018-12-30 16:59:01 WARN  DAO:40 - FAILED TO CONNECT TO DB: [Ljava.lang.StackTraceElement;@2f0aff8
+2018-12-30 16:59:01 WARN  DAO:40 - FAILED TO CONNECT TO DB: [Ljava.lang.StackTraceElement;@c71b49b
+2018-12-30 16:59:14 WARN  Main:18 - HEY
+2018-12-30 16:59:14 WARN  DAO:40 - FAILED TO CONNECT TO DB: null
+2018-12-30 16:59:14 WARN  DAO:40 - FAILED TO CONNECT TO DB: null
+2018-12-30 16:59:23 WARN  Main:18 - HEY
+2018-12-30 16:59:23 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 16:59:23 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:02:11 WARN  Main:18 - HEY
+2018-12-30 17:02:11 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:02:11 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:05:25 WARN  Main:18 - HEY
+2018-12-30 17:05:25 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:05:25 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:05:48 WARN  Main:18 - HEY
+2018-12-30 17:05:48 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 17:05:48 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 17:09:03 WARN  Main:18 - HEY
+2018-12-30 17:09:58 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 17:10:45 WARN  Main:18 - HEY
+2018-12-30 17:10:45 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:10:45 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:12:39 WARN  Main:18 - HEY
+2018-12-30 17:12:39 WARN  DAO:40 - FAILED TO CONNECT TO DB: No suitable driver found for jdbc:mysql://localhost:3306/ColecoSystem
+2018-12-30 17:12:39 WARN  DAO:40 - FAILED TO CONNECT TO DB: No suitable driver found for jdbc:mysql://localhost:3306/ColecoSystem
+2018-12-30 17:16:12 WARN  Main:18 - HEY
+2018-12-30 17:16:12 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:16:12 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:17:38 WARN  Main:18 - HEY
+2018-12-30 17:17:38 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 17:17:39 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 17:21:17 WARN  Main:18 - HEY
+2018-12-30 17:21:17 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:21:17 WARN  DAO:40 - FAILED TO CONNECT TO DB: com.mysql.cj.jdbc.Driver
+2018-12-30 17:21:24 WARN  Main:18 - HEY
+2018-12-30 17:21:25 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 17:21:25 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 17:22:31 WARN  Main:18 - HEY
+2018-12-30 17:22:31 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 17:22:31 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 17:24:35 WARN  Main:18 - HEY
+2018-12-30 17:24:35 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 17:24:35 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 17:27:43 WARN  Main:18 - HEY
+2018-12-30 17:27:43 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 17:27:44 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 17:44:42 WARN  Main:18 - HEY
+2018-12-30 17:44:42 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 17:44:42 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 17:44:46 WARN  Main:18 - HEY
+2018-12-30 17:44:46 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 17:44:46 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 17:49:32 WARN  Main:18 - HEY
+2018-12-30 17:49:33 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 17:49:33 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 19:08:58 WARN  Main:18 - HEY
+2018-12-30 19:08:58 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 19:08:59 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 19:16:28 WARN  Main:18 - HEY
+2018-12-30 19:16:28 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 19:16:28 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 19:20:22 WARN  Main:18 - HEY
+2018-12-30 19:20:22 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 19:20:22 WARN  DAO:40 - FAILED TO CONNECT TO DB: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+2018-12-30 19:34:23 WARN  Main:18 - HEY
+2018-12-30 19:34:23 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 19:34:23 WARN  DAO:40 - FAILED TO CONNECT TO DB: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+2018-12-30 19:43:16 WARN  Main:18 - HEY
+2018-12-30 19:43:17 WARN  DAO:14 - CONNECTED
+2018-12-30 19:43:17 WARN  DAO:14 - CONNECTED
+2018-12-30 19:45:48 WARN  Main:18 - HEY
+2018-12-30 19:45:48 WARN  DAO:14 - CONNECTED
+2018-12-30 19:45:49 WARN  DAO:14 - CONNECTED
+2018-12-30 19:45:53 DEBUG DAO:19 - EXECUTING QUERY: SELECT COUNT(*) FROM userauth WHERE username="d" and password="18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4"
+2018-12-30 19:45:53 WARN  DAO:24 - SQL QUERY FAILED: Table 'ColecoSystem.userauth' doesn't exist
+2018-12-30 19:45:54 DEBUG DAO:19 - EXECUTING QUERY: SELECT COUNT(*) FROM userauth WHERE username="d" and password="18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4"
+2018-12-30 19:45:54 WARN  DAO:24 - SQL QUERY FAILED: Table 'ColecoSystem.userauth' doesn't exist
+2018-12-30 19:45:54 DEBUG DAO:19 - EXECUTING QUERY: SELECT COUNT(*) FROM userauth WHERE username="d" and password="18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4"
+2018-12-30 19:45:54 WARN  DAO:24 - SQL QUERY FAILED: Table 'ColecoSystem.userauth' doesn't exist
+2018-12-30 19:45:54 DEBUG DAO:19 - EXECUTING QUERY: SELECT COUNT(*) FROM userauth WHERE username="d" and password="18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4"
+2018-12-30 19:45:54 WARN  DAO:24 - SQL QUERY FAILED: Table 'ColecoSystem.userauth' doesn't exist
+2018-12-30 20:01:35 WARN  Main:18 - HEY
+2018-12-30 20:01:35 WARN  DAO:14 - CONNECTED
+2018-12-30 20:01:35 WARN  DAO:14 - CONNECTED
+2018-12-30 20:01:41 DEBUG DAO:19 - EXECUTING QUERY: SELECT COUNT(*) FROM userauth WHERE username="hola" and password="8345f1e3912113e9e3fab17839872e21373e6aa7f89123dd5c00e9b272362c23"
+2018-12-30 20:01:41 DEBUG DAO:19 - EXECUTING QUERY: SELECT COUNT(*) FROM userauth WHERE username="hola" and password="8345f1e3912113e9e3fab17839872e21373e6aa7f89123dd5c00e9b272362c23"
+2018-12-30 20:11:02 WARN  Main:18 - HEY
+2018-12-30 20:11:03 WARN  DAO:14 - CONNECTED
+2018-12-30 20:11:03 WARN  DAO:14 - CONNECTED
+2018-12-30 20:11:09 DEBUG DAO:19 - EXECUTING QUERY: SELECT COUNT(*) FROM userauth WHERE username="colecouser" and password="bae73000a2f00bc70d4b27f0186574999a9c32b360e250241f21b88821b84fdd"
+2018-12-30 20:11:52 WARN  Main:18 - HEY
+2018-12-30 20:11:52 WARN  DAO:14 - CONNECTED
+2018-12-30 20:11:52 WARN  DAO:14 - CONNECTED
+2018-12-30 20:11:59 DEBUG DAO:19 - EXECUTING QUERY: SELECT COUNT(*) FROM userauth WHERE username="colecouser" and password="bae73000a2f00bc70d4b27f0186574999a9c32b360e250241f21b88821b84fdd"

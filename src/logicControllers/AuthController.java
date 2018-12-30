@@ -9,10 +9,10 @@ import java.security.NoSuchAlgorithmException;
 public class AuthController {
     private static Logger logger = Logger.getLogger(AuthController.class);
 
-    private DAO dao;
+    private DAOAuth dao;
 
     public AuthController(){
-        dao = new DAO();
+        dao = new DAOAuth();
     }
 
     public boolean auth(String user, String pass) {
