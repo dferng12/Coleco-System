@@ -12,6 +12,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import logicControllers.AuthController;
 import logicControllers.DAO;
+import logicControllers.UserController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,11 +31,21 @@ public class Auth implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         AuthController authController = new AuthController();
+        UserController userController  = new UserController();
         sendAuthInfo.setOnAction(event -> {
             if(authController.auth(this.username.getText(), this.password.getText())){
                 status.setText("PASSED");
+                if(userController.identify(this.username.getText()).equals("admin")){
+                    System.out.print("ADMIN IDENTIFY");
+                }else if(userController.identify(this.username.getText()).equals("teacher")){
+                    System.out.print("TEACHER IDENTIFY");
+                }else if(userController.identify(this.username.getText()).equals("student")){
+                    System.out.print("STUDENT IDENTIFY");
+                }else{
+                    System.out.print("ROL ERROR");
+                }
 
-                Stage st =  (Stage) sendAuthInfo.getScene().getWindow();
+                    Stage st =  (Stage) sendAuthInfo.getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/index.fxml"));
                 Region root;
 

@@ -14,7 +14,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         PropertyConfigurator.configure("resources/log4j.properties");
-
         logger.warn("HEY");
         DAO dao = new DAOAuth();
         Parent root = FXMLLoader.load(getClass().getResource("views/auth.fxml"));
@@ -24,5 +23,6 @@ public class Main extends Application {
     }
     public static void main(String[] args) {
         launch(args);
+
     }
 }
