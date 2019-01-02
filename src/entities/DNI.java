@@ -1,6 +1,6 @@
 package entities;
 
-public class DNI {
+public class DNI implements Handler{
     private int numbers;
     private char letter;
 
@@ -17,14 +17,20 @@ public class DNI {
         this.letter = letter;
     }
 
-    public boolean isEqual(DNI otherDni){
-        return this.numbers == otherDni.numbers;
-    }
 
-    public boolean letterIsCorrect(int numbers, int letter){
+    private boolean letterIsCorrect(int numbers, int letter){
         String LETTERS_ORDER = "TRWAGMYFPDXBNJZSQVHLCKE";
 
         return LETTERS_ORDER.charAt(numbers % 23 ) == letter;
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(numbers) + letter;
+    }
+
+    @Override
+    public boolean compareTo(Handler handler) {
+        return this.toString().equals(handler.toString());
+    }
 }

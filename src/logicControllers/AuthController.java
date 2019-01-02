@@ -15,7 +15,7 @@ public class AuthController {
         dao = new DAOAuth();
     }
 
-    public boolean auth(String user, String pass) {
+    public int auth(String user, String pass) {
         return dao.auth(user, hash(pass));
     }
 

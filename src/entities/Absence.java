@@ -7,8 +7,35 @@ public class Absence{
     private Date date;
     private String reason;
 
-    public Absence(Date date, String reason) {
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public int getPenalty() {
+        return penalty;
+    }
+
+    public void setPenalty(int penalty) {
+        this.penalty = penalty;
+    }
+
+    private int penalty;
+
+    public Absence(Date date, String reason, int penalty) {
         this.date = date;
         this.reason = reason;
+        this.penalty = penalty;
     }
 }

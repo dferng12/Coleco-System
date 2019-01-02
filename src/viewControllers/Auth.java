@@ -33,19 +33,10 @@ public class Auth implements Initializable{
         AuthController authController = new AuthController();
         UserController userController  = new UserController();
         sendAuthInfo.setOnAction(event -> {
-            if(authController.auth(this.username.getText(), this.password.getText())){
-                status.setText("PASSED");
-                if(userController.identify(this.username.getText()).equals("admin")){
-                    System.out.print("ADMIN IDENTIFY");
-                }else if(userController.identify(this.username.getText()).equals("teacher")){
-                    System.out.print("TEACHER IDENTIFY");
-                }else if(userController.identify(this.username.getText()).equals("student")){
-                    System.out.print("STUDENT IDENTIFY");
-                }else{
-                    System.out.print("ROL ERROR");
-                }
+            int authKey = authController.auth(this.username.getText(), this.password.getText());
+            if(authKey != -1){
 
-                    Stage st =  (Stage) sendAuthInfo.getScene().getWindow();
+                Stage st =  (Stage) sendAuthInfo.getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/index.fxml"));
                 Region root;
 

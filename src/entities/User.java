@@ -15,4 +15,9 @@ public abstract class User {
     public List<Subject> getSubjects() {
         return null;
     }
+
+    public Handler getHandler(){
+        return this.dni;
+    }
+
 }

@@ -1,4 +1,4 @@
 package entities;
 
-public class Admin {
+public class Admin extends User{
 }
