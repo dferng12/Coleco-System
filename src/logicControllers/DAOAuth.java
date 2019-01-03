@@ -13,13 +13,15 @@ public class DAOAuth extends DAO {
 
         executeUpdate(sqlCreate);
         String adminExists = "SELECT COUNT(*) AS total FROM userauth";
-        String adminCreate = "INSERT INTO userauth VALUES ( '1', 'colecoadmin' , '7b8956fc49b3c4e92f5761b2bb503a548640537d1abb7b7c1e2f7fdf7df40995');";
+        String userCreate = "INSERT INTO userauth VALUES ( '1', 'colecoadmin' , '7b8956fc49b3c4e92f5761b2bb503a548640537d1abb7b7c1e2f7fdf7df40995');";
+        String adminCreate= "INSERT INTO admins VALUES('colecoadmin', '1');";
         logger.debug("colecoadmin and passadmin new auxiliar admin keys");
         try {
             ResultSet result = execQuery(adminExists);
             result.next();
             int total = result.getInt("total");
             if (total == 0) {
+                executeUpdate(userCreate);
                 executeUpdate(adminCreate);
             }else{
                 logger.debug("colecoadmin EXISTS YET");

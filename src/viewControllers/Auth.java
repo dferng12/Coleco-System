@@ -1,5 +1,8 @@
 package viewControllers;
 
+import entities.Admin;
+import entities.Student;
+import entities.Teacher;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,6 +40,13 @@ public class Auth implements Initializable{
             if(authKey != -1){
 
                 Stage st =  (Stage) sendAuthInfo.getScene().getWindow();
+                if(userController.getUser(authKey) instanceof Admin){
+                    System.out.print("ADMIN");
+                }else if(userController.getUser(authKey) instanceof Teacher){
+                    System.out.print("TEACHER");
+                }else if (userController.getUser(authKey) instanceof Student){
+                    System.out.print("STUDENT");
+                }
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/index.fxml"));
                 Region root;
 

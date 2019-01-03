@@ -1,5 +1,6 @@
 package logicControllers;
 
+import entities.User;
 import org.apache.log4j.Logger;
 
 public class UserController {
@@ -10,10 +11,9 @@ public class UserController {
     public UserController(){
         dao = new DAOUser();
     }
-    /*
-    public String identify(String user) {
-        System.out.print(user);
-        return dao.identify(user);
+
+    public User getUser(int auth) {
+        return dao.getUser(auth);
     }
-    */
+
 }
