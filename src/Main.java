@@ -15,7 +15,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         PropertyConfigurator.configure("resources/log4j.properties");
         logger.warn("HEY");
-        DAO dao = new DAOAuth();
+
         Parent root = FXMLLoader.load(getClass().getResource("views/auth.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 500, 500));

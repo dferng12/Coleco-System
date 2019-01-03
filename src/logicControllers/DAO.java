@@ -25,6 +25,18 @@ public abstract class DAO {
             return null;
         }
     }
+    public int executeUpdate(String query){
+        try {
+            logger.debug("EXECUTING QUERY: " +  query);
+            Statement statement = connection.createStatement();
+            return statement.executeUpdate(query);
+
+        } catch (SQLException e) {
+            logger.warn("SQL QUERY FAILED: " + e.getMessage());
+            return 0;
+        }
+
+    }
 
     public User getUser(String DNI){
         return null;

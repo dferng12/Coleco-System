@@ -26,7 +26,7 @@ public class DAOUser extends DAO {
                 "REFERENCES userauth(id)" +
                 "ON DELETE CASCADE);";
 
-        execQuery(query);
+        executeUpdate(query);
 
         query = "CREATE TABLE IF NOT EXISTS teachers (" +
                 "username VARCHAR(20) NOT NULL," +
@@ -43,7 +43,7 @@ public class DAOUser extends DAO {
                 "REFERENCES userauth(id)" +
                 "ON DELETE CASCADE);";
 
-        execQuery(query);
+        executeUpdate(query);
 
         query = "CREATE TABLE IF NOT EXISTS admins (" +
                 "username VARCHAR(20) PRIMARY KEY," +
@@ -52,7 +52,7 @@ public class DAOUser extends DAO {
                 "REFERENCES userauth(id)" +
                 "ON DELETE CASCADE);";
 
-        execQuery(query);
+        executeUpdate(query);
     }
 
     public User getUser(int authIndex){

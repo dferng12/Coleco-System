@@ -10,10 +10,10 @@ public class UserController {
     public UserController(){
         dao = new DAOUser();
     }
-
+    /*
     public String identify(String user) {
         System.out.print(user);
         return dao.identify(user);
     }
-
+    */
 }
