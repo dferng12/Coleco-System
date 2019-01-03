@@ -3,8 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import logicControllers.DAO;
-import logicControllers.DAOAuth;
+import logicControllers.*;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -13,8 +12,11 @@ public class Main extends Application {
     private static Logger logger = Logger.getLogger(Main.class);
     @Override
     public void start(Stage primaryStage) throws Exception{
-        PropertyConfigurator.configure("resources/log4j.properties");
-        logger.warn("HEY");
+        PropertyConfigurator.configure(System.getProperty("user.dir") + "/src/resources/log4j.properties");
+        logger.warn("COLECO SYSTEM STARTED");
+
+        DAO dao = new DAO();
+        dao.createDB();
 
         Parent root = FXMLLoader.load(getClass().getResource("views/auth.fxml"));
         primaryStage.setTitle("Hello World");
@@ -23,6 +25,5 @@ public class Main extends Application {
     }
     public static void main(String[] args) {
         launch(args);
-
     }
 }

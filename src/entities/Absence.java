@@ -6,6 +6,8 @@ public class Absence{
 
     private Date date;
     private String reason;
+    private int penalty;
+
 
     public Date getDate() {
         return date;
@@ -31,7 +33,6 @@ public class Absence{
         this.penalty = penalty;
     }
 
-    private int penalty;
 
     public Absence(Date date, String reason, int penalty) {
         this.date = date;

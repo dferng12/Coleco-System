@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Subject {
 
+    private SubjectHandler id;
     private final String name;
     private List<Student> students;
     private Teacher teacher;
@@ -17,6 +18,7 @@ public class Subject {
         this.students = new ArrayList<>();
         this.grades = new HashMap<>();
         this.absences = new HashMap<>();
+        this.id = new SubjectHandler(this.name);
     }
 
     public void setTeacher(Teacher teacher){
@@ -75,6 +77,10 @@ public class Subject {
 
     @Override
     public String toString(){
+        return name;
+    }
+
+    public String getName() {
         return name;
     }
 }

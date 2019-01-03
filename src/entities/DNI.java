@@ -1,24 +1,24 @@
 package entities;
 
 public class DNI implements Handler{
-    private int numbers;
+    private String numbers;
     private char letter;
 
-    public DNI createDNI(int numbers, char letter){
-        if (letterIsCorrect(numbers, letter)){
-            return new DNI(numbers, letter);
+    public static DNI createDNI(String dni){
+        if (letterIsCorrect(Integer.parseInt(dni.substring(0,8)), dni.charAt(dni.length()-1))){
+            return new DNI((dni.substring(0,8)), dni.charAt(dni.length()-1));
         }else{
             return null;
         }
     }
 
-    private DNI(int numbers, char letter){
+    private DNI(String numbers, char letter){
         this.numbers = numbers;
         this.letter = letter;
     }
 
 
-    private boolean letterIsCorrect(int numbers, int letter){
+    private static boolean letterIsCorrect(int numbers, char letter){
         String LETTERS_ORDER = "TRWAGMYFPDXBNJZSQVHLCKE";
 
         return LETTERS_ORDER.charAt(numbers % 23 ) == letter;
@@ -26,7 +26,7 @@ public class DNI implements Handler{
 
     @Override
     public String toString() {
-        return String.valueOf(numbers) + letter;
+        return numbers + letter;
     }
 
     @Override

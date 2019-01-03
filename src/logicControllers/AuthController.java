@@ -15,7 +15,7 @@ public class AuthController {
         dao = new DAOAuth();
     }
 
-    public int auth(String user, String pass) {
+    public String auth(String user, String pass) {
         return dao.auth(user, hash(pass));
     }
 
@@ -27,7 +27,7 @@ public class AuthController {
         return sb.toString();
     }
 
-    private static String hash(String toHash){
+    public static String hash(String toHash){
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] binaryToHash = toHash.getBytes("UTF-8");

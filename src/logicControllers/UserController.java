@@ -12,7 +12,7 @@ public class UserController {
         dao = new DAOUser();
     }
 
-    public User getUser(int auth) {
+    public User getUser(String auth) {
         return dao.getUser(auth);
     }
 

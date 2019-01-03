@@ -4,14 +4,33 @@ import entities.User;
 import org.apache.log4j.Logger;
 import java.sql.*;
 
-public abstract class DAO {
+public class DAO {
     protected Connection connection = null;
     protected boolean connectionStatus;
     protected static Logger logger = Logger.getLogger(DAO.class);
 
     public DAO(){
         connectionStatus = connect();
-        if(connectionStatus) logger.warn("CONNECTED");
+        if(!connectionStatus) logger.warn("ERROR CONNECTING");
+    }
+
+    public void createDB(){
+        String query = "DROP DATABASE IF EXISTS ColecoSystem";
+        executeUpdate(query);
+
+        query = "CREATE DATABASE ColecoSystem";
+        executeUpdate(query);
+
+        DAOGrades daoGrades = new DAOGrades();
+        DAOUser daoUser = new DAOUser();
+        DAOSubject daoSubject = new DAOSubject();
+        DAOAbsences daoAbsences = new DAOAbsences();
+        DAOAuth daoAuth = new DAOAuth();
+
+        daoGrades.fk();
+        daoSubject.fk();
+        daoUser.fk();
+        daoAbsences.fk();
     }
 
     public ResultSet execQuery(String query){
@@ -25,6 +44,7 @@ public abstract class DAO {
             return null;
         }
     }
+
     public int executeUpdate(String query){
         try {
             logger.debug("EXECUTING QUERY: " +  query);
@@ -33,7 +53,7 @@ public abstract class DAO {
 
         } catch (SQLException e) {
             logger.warn("SQL QUERY FAILED: " + e.getMessage());
-            return 0;
+            return -1;
         }
 
     }
@@ -45,7 +65,7 @@ public abstract class DAO {
 
     private boolean connect(){
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ColecoSystem", "colecouser", "colecopass");
             return connection.isValid(50000);
         }catch (ClassNotFoundException | SQLException e){
