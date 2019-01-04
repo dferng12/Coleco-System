@@ -1,4 +1,4 @@
-package logicControllers;
+package logicControllers.DAOS;
 
 import entities.*;
 
@@ -11,7 +11,6 @@ public class DAOUser extends DAO {
 
     public DAOUser() {
         String query = "CREATE TABLE IF NOT EXISTS students (" +
-                "username VARCHAR(20) NOT NULL," +
                 "name VARCHAR(20) NOT NULL," +
                 "subname VARCHAR(45) NOT NULL," +
                 "dni VARCHAR(9) NOT NULL," +
@@ -24,7 +23,6 @@ public class DAOUser extends DAO {
         executeUpdate(query);
 
         query = "CREATE TABLE IF NOT EXISTS teachers (" +
-                "username VARCHAR(20) NOT NULL," +
                 "name VARCHAR(20) NOT NULL," +
                 "subname VARCHAR(45) NOT NULL," +
                 "dni VARCHAR(9) NOT NULL," +
@@ -37,8 +35,14 @@ public class DAOUser extends DAO {
         executeUpdate(query);
 
         query = "CREATE TABLE IF NOT EXISTS admins (" +
-                "username VARCHAR(20) PRIMARY KEY," +
-                "auth varchar(60));";
+                "name VARCHAR(20) NOT NULL," +
+                "subname VARCHAR(45) NOT NULL," +
+                "dni VARCHAR(9) NOT NULL," +
+                "age INT," +
+                "auth varchar(60)," +
+                "email VARCHAR(50)," +
+                "phoneNumber CHAR(10)," +
+                "PRIMARY KEY(dni));";
 
         executeUpdate(query);
     }
@@ -58,14 +62,13 @@ public class DAOUser extends DAO {
         String query = "SELECT * FROM students INNER JOIN userauth ON students.auth = userauth.username WHERE auth = \"" + authName + "\"";
 
         ResultSet result = execQuery(query);
+        DAOSubject daoSubject = new DAOSubject();
 
         if(result != null){
             try {
                 if(result.next()){
-                    DAOSubject daoSubject = new DAOSubject();
                     Student user = new Student();
-                    user.setName(result.getString("name"));
-                    user.setDni(DNI.createDNI(result.getString("dni")));
+                    fillUserData(result, user);
                     daoSubject.getSubjectsFromStudent(user);
                     return user;
 
@@ -82,8 +85,9 @@ public class DAOUser extends DAO {
         if(result != null){
             try {
                 if(result.next()){
-                    Teacher user = new Teacher(result.getString("dni"));
-                    //Rellenar con la info recibida
+                    Teacher user = new Teacher();
+                    fillUserData(result, user);
+                    daoSubject.getSubjectsFromTeacher(user);
                     return user;
 
                 }
@@ -100,7 +104,7 @@ public class DAOUser extends DAO {
             try {
                 if(result.next()){
                     Admin user = new Admin();
-                    //Rellenar con la info recibida
+                    fillUserData(result, user);
                     return user;
                 }
             } catch (SQLException e) {
@@ -112,7 +116,7 @@ public class DAOUser extends DAO {
         return null;
     }
 
-    public void getTeacher(Subject subject){
+    public void getTeacherFromSubject(Subject subject){
         String query = "SELECT * FROM teachers INNER JOIN subjects ON teachers.dni = subjects.teacher" +
                 "WHERE subject.name = \"" + subject.getName() + "\"";
 
@@ -122,8 +126,9 @@ public class DAOUser extends DAO {
 
         try {
             if(resultSet.next()){
-                Teacher teacher = new Teacher(resultSet.getString("teachers.dni"));
-                teacher.setName(resultSet.getString("teachers.name"));
+                Teacher teacher = new Teacher();
+                fillUserData(resultSet, teacher);
+                teacher.addSubject(subject);
                 subject.setTeacher(teacher);
             }
         } catch (SQLException e) {
@@ -150,7 +155,10 @@ public class DAOUser extends DAO {
     }
 
     public void addStudent(Student student, String username){
-        String query = "INSERT INTO students(dni, name, subname, username) VALUES(\"" + student.getDni().toString() +"\", \""+ student.getName() + "\", \"" +student.getSubname() +"\", \"" + username + "\");";
+        String query = "INSERT INTO userauth(username, password) VALUES('" + student.getAuthInfo().getUser() + "','" + student.getAuthInfo().getPasswd() + "');";
+        executeUpdate(query);
+
+        query = "INSERT INTO students(dni, name, subname, auth) VALUES(\"" + student.getDni().toString() +"\", \""+ student.getName() + "\", \"" +student.getSubname() +"\", \"" + username + "\");";
 
         executeUpdate(query);
     }
@@ -174,4 +182,28 @@ public class DAOUser extends DAO {
 
         return students;
     }
+
+    private void fillUserData(ResultSet resultSet, User user){
+        try {
+            user.setDni(DNI.createDNI(resultSet.getString("dni")));
+            user.setName(resultSet.getString("name"));
+            user.setSubname(resultSet.getString("subname"));
+            user.setEmail(resultSet.getString("email"));
+            user.setAge(resultSet.getInt("age"));
+            user.setPhoneNumber(resultSet.getInt("phonenumber"));
+
+            String query = "SELECT * FROM userauth WHERE username = '" + resultSet.getString("auth") + "';";
+            ResultSet auth = execQuery(query);
+
+            if(resultSet.next()){
+                user.setAuthInfo(new AuthInfo(resultSet.getString("auth"), auth.getString("password")));
+            }
+
+            return;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

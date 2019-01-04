@@ -11,8 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import logicControllers.DAOUser;
 import logicControllers.Students;
+import logicControllers.Users;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,7 +44,7 @@ public class AddStudent implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         create.setOnAction(event -> {
-            Students students = new Students();
+            Users students = new Users();
             Student student = new Student();
 
             student.setDni(DNI.createDNI(dni.getText()));

@@ -3,7 +3,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import logicControllers.*;
+import logicControllers.DAOS.DAO;
+import logicControllers.DAOS.DAOAuth;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -17,6 +18,8 @@ public class Main extends Application {
 
         DAO dao = new DAO();
         dao.createDB();
+        DAOAuth daoAuth = new DAOAuth();
+        daoAuth.createAdmin();
 
         Parent root = FXMLLoader.load(getClass().getResource("views/auth.fxml"));
         primaryStage.setTitle("Hello World");

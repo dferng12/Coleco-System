@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import logicControllers.AuthController;
-import logicControllers.UserController;
+import logicControllers.Users;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,18 +32,18 @@ public class Auth implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         AuthController authController = new AuthController();
-        UserController userController  = new UserController();
+        Users users = new Users();
         sendAuthInfo.setOnAction(event -> {
             String authUsername = authController.auth(this.username.getText(), this.password.getText());
             if(!authUsername.equals("")){
 
                 FXMLLoader loader = null;
                 Stage st =  (Stage) sendAuthInfo.getScene().getWindow();
-                if(userController.getUser(authUsername) instanceof Admin){
+                if(users.getUser(authUsername) instanceof Admin){
                     loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
-                }else if(userController.getUser(authUsername) instanceof Teacher){
+                }else if(users.getUser(authUsername) instanceof Teacher){
                     loader = new FXMLLoader(getClass().getResource("../views/indexteacher.fxml"));
-                }else if (userController.getUser(authUsername) instanceof Student){
+                }else if (users.getUser(authUsername) instanceof Student){
                     loader = new FXMLLoader(getClass().getResource("../views/indexstudent.fxml"));
                 }
 
@@ -54,9 +54,6 @@ public class Auth implements Initializable{
 
                     Scene scene = new Scene(root);
                     st.setScene(scene);
-
-                    IndexAdmin indexview = loader.getController();
-                    indexview.setUser(authUsername);
 
                     st.show();
                 } catch (IOException e) {

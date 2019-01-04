@@ -1,7 +1,6 @@
 package viewControllers;
 
 import entities.Student;
-import entities.Subject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,9 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import logicControllers.DAOSubject;
-import logicControllers.IndexAdminController;
 import logicControllers.Students;
+import logicControllers.Users;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,11 +32,9 @@ public class IndexAdmin implements Initializable{
     @FXML
     private Button logout;
 
-    private IndexAdminController index;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Students students = new Students();
+        Users students = new Users();
         ObservableList<Student> observableList = FXCollections.observableArrayList();
 
         observableList.addAll(students.getAllStudents());
@@ -83,11 +79,4 @@ public class IndexAdmin implements Initializable{
         });
 
     }
-
-    public void setUser(String DNI){
-        this.index = new IndexAdminController(DNI);
-    }
-
-
-
 }

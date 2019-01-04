@@ -1,4 +1,4 @@
-package logicControllers;
+package logicControllers.DAOS;
 
 import entities.Grade;
 import entities.Student;
@@ -55,6 +55,11 @@ public class DAOGrades extends DAO{
 
     public void addGrade(Grade grade){
         String query = "INSERT INTO grades(grade, percentage) VALUES(\"" + grade.getValue()+"\", \"" + grade.getPercentage() + "\");";
+        executeUpdate(query);
+    }
+
+    public void addGradeToSubject(Subject subject, Grade grade, Student student){
+        String query = "INSERT INTO grades_subject_students(id, name, dni) VALUES('" + grade.getId() + "','" + subject.getName() + "','" + student.getDni().toString() + "');";
         executeUpdate(query);
     }
 }

@@ -7,7 +7,15 @@ public class Absence{
     private Date date;
     private String reason;
     private int penalty;
+    private int id;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Date getDate() {
         return date;

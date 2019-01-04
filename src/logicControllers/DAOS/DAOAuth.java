@@ -1,6 +1,7 @@
-package logicControllers;
+package logicControllers.DAOS;
 
 import entities.AuthInfo;
+import logicControllers.AuthController;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,24 +14,6 @@ public class DAOAuth extends DAO {
                 "password varchar(260));";
 
         executeUpdate(sqlCreate);
-        String adminExists = "SELECT COUNT(*) AS total FROM userauth";
-        String userCreate = "INSERT INTO userauth VALUES ('colecoadmin' , '7b8956fc49b3c4e92f5761b2bb503a548640537d1abb7b7c1e2f7fdf7df40995');";
-        String adminCreate= "INSERT INTO admins VALUES('colecoadmin', 'colecoadmin');";
-        logger.debug("colecoadmin and passadmin new auxiliar admin keys");
-        try {
-            ResultSet result = execQuery(adminExists);
-            result.next();
-            int total = result.getInt("total");
-            if (total == 0) {
-                executeUpdate(userCreate);
-                executeUpdate(adminCreate);
-            }else{
-                logger.debug("colecoadmin EXISTS YET");
-            }
-        } catch (SQLException e) {
-            logger.error("ERROR IN SQL QUERY");
-            logger.debug(e.getMessage());
-        }
     }
 
     public String auth(String username, String password){
@@ -55,5 +38,27 @@ public class DAOAuth extends DAO {
         String query = "INSERT INTO userauth(username,password) VALUES (\"" + authInfo.getUser() + "\", \"" + AuthController.hash(authInfo.getPasswd()) + "\");";
 
         executeUpdate(query);
+    }
+
+    public void createAdmin(){
+
+        String adminExists = "SELECT COUNT(*) AS total FROM userauth";
+        String adminCreate= "INSERT INTO userauth VALUES('colecoadmin', '7b8956fc49b3c4e92f5761b2bb503a548640537d1abb7b7c1e2f7fdf7df40995');";
+        String userCreate = "INSERT INTO admins(dni, name, subname, email, auth) VALUES ('71474345M', 'Coleco', 'System', 'coleco@coleco.com', 'colecoadmin');";
+        logger.debug("colecoadmin and passadmin new auxiliar admin keys");
+        try {
+            ResultSet result = execQuery(adminExists);
+            result.next();
+            int total = result.getInt("total");
+            if (total == 0) {
+                executeUpdate(adminCreate);
+                executeUpdate(userCreate);
+            }else{
+                logger.debug("colecoadmin EXISTS YET");
+            }
+        } catch (SQLException e) {
+            logger.error("ERROR IN SQL QUERY");
+            logger.debug(e.getMessage());
+        }
     }
 }

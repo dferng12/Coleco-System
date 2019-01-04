@@ -1,5 +1,6 @@
 package logicControllers;
 
+import logicControllers.DAOS.DAOAuth;
 import org.apache.log4j.Logger;
 
 import java.io.UnsupportedEncodingException;

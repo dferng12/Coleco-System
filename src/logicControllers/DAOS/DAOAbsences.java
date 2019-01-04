@@ -1,13 +1,11 @@
-package logicControllers;
+package logicControllers.DAOS;
 
 import entities.Absence;
 import entities.Student;
 import entities.Subject;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 public class DAOAbsences extends DAO{
 
@@ -58,6 +56,11 @@ public class DAOAbsences extends DAO{
 
     public void addAbsence(Absence absence){;
         String query = "INSERT INTO absences(date, reason, penalty) VALUES(\"" + absence.getDate().toString()  +"\", \"" + absence.getReason()+ "\", \"" + String.valueOf(absence.getPenalty()) + "\");";
+        executeUpdate(query);
+    }
+
+    public void addGradeToSubject(Subject subject, Absence absence, Student student){
+        String query = "INSERT INTO absences_subject_students(id, name, dni) VALUES('" + absence.getId() + "','" + subject.getName() + "','" + student.getDni().toString() + "');";
         executeUpdate(query);
     }
 }

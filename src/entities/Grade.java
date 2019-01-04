@@ -1,6 +1,18 @@
 package entities;
 
 public class Grade {
+    private int value;
+    private int percentage;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getValue() {
         return value;
     }
@@ -16,9 +28,6 @@ public class Grade {
     public void setPercentage(int percentage) {
         this.percentage = percentage;
     }
-
-    private int value;
-    private int percentage;
 
     public Grade(int value, int percentage){
         this.value = value;

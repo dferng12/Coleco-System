@@ -1,11 +1,14 @@
-package logicControllers;
+package logicControllers.DAOS;
 
+import entities.Grade;
 import entities.Student;
 import entities.Subject;
 import entities.Teacher;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAOSubject extends DAO{
 
@@ -24,6 +27,7 @@ public class DAOSubject extends DAO{
         executeUpdate(query);
 
     }
+
     public void fk(){
         String query = "ALTER TABLE subjects ADD CONSTRAINT fk_subjects_teacher FOREIGN KEY (teacher) REFERENCES teachers(dni)";
         executeUpdate(query);
@@ -44,9 +48,13 @@ public class DAOSubject extends DAO{
             return null;
         }
 
+        DAOUser daoUser = new DAOUser();
+
         try {
             if(resultSet.next()){
                 Subject subject = new Subject(resultSet.getString("name"));
+                daoUser.getStudentsFromSubject(subject);
+                daoUser.getTeacherFromSubject(subject);
                 return subject;
             }
         } catch (SQLException e) {
@@ -94,5 +102,30 @@ public class DAOSubject extends DAO{
     public void addSubject(Subject subject){
         String query = "INSERT INTO subjects (name) VALUES (\"" + subject.getName() +"\");";
         executeUpdate(query);
+    }
+
+    public void addTeacherToSubject(Subject subject, Teacher teacher){
+        String query = "UPDATE subjects SET teacher = '" + teacher.getDni().toString() + "' WHERE name = '" + subject.getName() + "';";
+        executeUpdate(query);
+    }
+
+    public void addStudentToSubject(Subject subject, Student student){
+        String query = "INSERT INTO subjects_students(subject_name, dni) VALUES('" + subject.getName() + "','" + student.getDni().toString() + "');";
+        executeUpdate(query);
+    }
+
+    public List<Subject> getAllSubjects() throws SQLException {
+        String query = "SELECT * FROM subjects";
+        ResultSet resultSet = execQuery(query);
+
+        if (resultSet == null) return new ArrayList<>();
+
+        ArrayList<Subject> subjects = new ArrayList<>();
+
+        while (resultSet.next()){
+            subjects.add(getSubject(resultSet.getString("name")));
+        }
+
+        return subjects;
     }
 }

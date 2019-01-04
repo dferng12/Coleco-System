@@ -1,4 +1,4 @@
-package logicControllers;
+package logicControllers.DAOS;
 
 import entities.User;
 import org.apache.log4j.Logger;
@@ -26,11 +26,13 @@ public class DAO {
         DAOSubject daoSubject = new DAOSubject();
         DAOAbsences daoAbsences = new DAOAbsences();
         DAOAuth daoAuth = new DAOAuth();
+        DAOMessages daoMessages = new DAOMessages();
 
         daoGrades.fk();
         daoSubject.fk();
         daoUser.fk();
         daoAbsences.fk();
+        daoMessages.fk();
     }
 
     public ResultSet execQuery(String query){
