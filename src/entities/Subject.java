@@ -33,6 +33,10 @@ public class Subject {
         this.students.add(student);
     }
 
+    public List<Student> getStudents(){
+        return this.students;
+    }
+
     public void addGrade(Student student, Grade grade){
         this.grades.computeIfAbsent(student, k -> new ArrayList<>());
         this.grades.get(student).add(grade);

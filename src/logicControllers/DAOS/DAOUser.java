@@ -1,6 +1,7 @@
 package logicControllers.DAOS;
 
 import entities.*;
+import logicControllers.Teachers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -154,11 +155,14 @@ public class DAOUser extends DAO {
         }
     }
 
-    public void addStudent(Student student, String username){
-        String query = "INSERT INTO userauth(username, password) VALUES('" + student.getAuthInfo().getUser() + "','" + student.getAuthInfo().getPasswd() + "');";
-        executeUpdate(query);
+    public void addStudent(Student student){
+        String query = "INSERT INTO students(dni, name, subname, auth) VALUES(\"" + student.getDni().toString() +"\", \""+ student.getName() + "\", \"" +student.getSubname() +"\", \"" + student.getAuthInfo().getUser() + "\");";
 
-        query = "INSERT INTO students(dni, name, subname, auth) VALUES(\"" + student.getDni().toString() +"\", \""+ student.getName() + "\", \"" +student.getSubname() +"\", \"" + username + "\");";
+        executeUpdate(query);
+    }
+
+    public void addTeacher(Teacher teacher){
+        String query = "INSERT INTO teachers(dni, name, subname, auth) VALUES (\"" + teacher.getDni().toString() +"\", \""+ teacher.getName() + "\", \"" +teacher.getSubname() +"\", \"" + teacher.getAuthInfo().getUser() + "\");";
 
         executeUpdate(query);
     }
@@ -174,9 +178,7 @@ public class DAOUser extends DAO {
 
         while(resultSet.next()){
             Student student = new Student();
-            student.setName(resultSet.getString("name"));
-            student.setSubname(resultSet.getString("students.subname"));
-            student.setDni(DNI.createDNI(resultSet.getString("dni")));
+            fillUserData(resultSet, student);
             students.add(student);
         }
 
@@ -204,6 +206,24 @@ public class DAOUser extends DAO {
             e.printStackTrace();
         }
 
+    }
+
+    public List<Teacher> getAllTeachers() throws SQLException {
+        String query = "SELECT * FROM teachers;";
+
+        ResultSet resultSet = execQuery(query);
+
+        if(resultSet == null) return new ArrayList<>();
+
+        ArrayList<Teacher> teachers = new ArrayList<>();
+
+        while(resultSet.next()){
+            Teacher teacher = new Teacher();
+            fillUserData(resultSet, teacher);
+            teachers.add(teacher);
+        }
+
+        return teachers;
     }
 
 }

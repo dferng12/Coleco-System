@@ -28,8 +28,8 @@ public class DAOMessages extends DAO{
         executeUpdate(query);
     }
 
-    public void addMessage(Message message, String sender, String receiver){
-        String query = "INSERT INTO messages(subject, text, sender, receiver) VALUES ('" + message.getSubject() + "','" + message.getText() + "','" + sender + "','" + receiver + "');";
+    public void addMessage(Message message, User sender, User receiver){
+        String query = "INSERT INTO messages(subject, text, sender, receiver) VALUES ('" + message.getSubject() + "','" + message.getText() + "','" + sender.getDni().toString() + "','" + receiver.getDni().toString() + "');";
 
         executeUpdate(query);
     }

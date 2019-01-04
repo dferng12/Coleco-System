@@ -12,31 +12,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Users {
-    private static Logger logger = Logger.getLogger(AuthController.class);
-    private DAOUser daoUser;
-    private DAOAuth daoAuth;
+    private static Logger logger = Logger.getLogger(Users.class);
+
+    protected DAOUser daoUser;
+    protected DAOAuth daoAuth;
 
     public Users(){
         daoUser = new DAOUser();
         daoAuth = new DAOAuth();
     }
 
-    public void addStudent(Student student, AuthInfo authInfo){
-        daoUser.addStudent(student, authInfo.getUser());
-        daoAuth.addAuthInfo(authInfo);
-    }
-
-    public List<Student> getAllStudents(){
-        try {
-            return daoUser.getAllStudents();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return new ArrayList<>();
-    }
-
     public User getUser(String username){
         return daoUser.getUser(username);
+    }
+
+    public void deleteUser(User user){
+        return;
     }
 
 }

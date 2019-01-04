@@ -44,7 +44,7 @@ public class AddStudent implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         create.setOnAction(event -> {
-            Users students = new Users();
+            Students students = new Students();
             Student student = new Student();
 
             student.setDni(DNI.createDNI(dni.getText()));
@@ -53,7 +53,7 @@ public class AddStudent implements Initializable{
             AuthInfo authInfo = new AuthInfo(username.getText(), password.getText());
             student.setAuthInfo(authInfo);
 
-            students.addStudent(student, authInfo);
+            students.addStudent(student);
         });
 
         back.setOnAction(event -> {

@@ -71,11 +71,17 @@ public class DAOSubject extends DAO{
                 "WHERE students.dni = \"" + user.getDni().toString() + "\"";
 
         ResultSet results = execQuery(query);
+        DAOUser daoUser = new DAOUser();
+        DAOGrades daoGrades = new DAOGrades();
+        DAOAbsences daoAbsences = new DAOAbsences();
 
         if (results != null){
             while(results.next()){
                 Subject subject = new Subject(results.getString("name"));
-
+                daoUser.getTeacherFromSubject(subject);
+                daoAbsences.getAbsences(user, subject);
+                daoGrades.getGrades(user, subject);
+                user.addSubject(subject);
             }
         }
 
@@ -87,12 +93,16 @@ public class DAOSubject extends DAO{
                 "WHERE teachers.dni = " + user.getDni().toString();
 
         ResultSet results = execQuery(query);
+        DAOUser daoUser = new DAOUser();
+        DAOGrades daoGrades = new DAOGrades();
+        DAOAbsences daoAbsences = new DAOAbsences();
 
         if (results != null){
-            DAOUser daoUser = new DAOUser();
             while(results.next()){
                 Subject subject = new Subject(results.getString("name"));
                 daoUser.getStudentsFromSubject(subject);
+                daoGrades.getGradesFromSubject(subject);
+                daoAbsences.getAbsencesFromSubject(subject);
                 user.addSubject(subject);
             }
         }

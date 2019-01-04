@@ -63,4 +63,16 @@ public class DAOAbsences extends DAO{
         String query = "INSERT INTO absences_subject_students(id, name, dni) VALUES('" + absence.getId() + "','" + subject.getName() + "','" + student.getDni().toString() + "');";
         executeUpdate(query);
     }
+
+    public void  getAbsencesFromSubject(Subject subject){
+        DAOUser daoUser = new DAOUser();
+        try {
+            daoUser.getStudentsFromSubject(subject);
+            for(Student student: subject.getStudents()){
+                getAbsences(student, subject);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

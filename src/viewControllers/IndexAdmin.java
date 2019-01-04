@@ -34,7 +34,7 @@ public class IndexAdmin implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Users students = new Users();
+        Students students = new Students();
         ObservableList<Student> observableList = FXCollections.observableArrayList();
 
         observableList.addAll(students.getAllStudents());

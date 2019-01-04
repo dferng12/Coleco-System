@@ -62,4 +62,16 @@ public class DAOGrades extends DAO{
         String query = "INSERT INTO grades_subject_students(id, name, dni) VALUES('" + grade.getId() + "','" + subject.getName() + "','" + student.getDni().toString() + "');";
         executeUpdate(query);
     }
+
+    public void getGradesFromSubject(Subject subject) {
+        DAOUser daoUser = new DAOUser();
+        try {
+            daoUser.getStudentsFromSubject(subject);
+            for(Student student: subject.getStudents()){
+                getGrades(student, subject);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
