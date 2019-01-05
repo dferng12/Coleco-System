@@ -236,4 +236,10 @@ public class DAOUser extends DAO {
         executeUpdate(query);
     }
 
+    public void updateStudent(Student student){
+        String query = "UPDATE students SET dni = '" + student.getDni().toString() + "', name = '" + student.getName() + "', subname = '" + student.getSubname() + "', auth = '" + student.getAuthInfo().getUser() + "' WHERE dni = '" + student.getDni().toString() + "'";
+
+        executeUpdate(query);
+    }
+
 }

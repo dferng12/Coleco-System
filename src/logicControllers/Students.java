@@ -33,4 +33,7 @@ public class Students extends Users{
         daoAuth.deleteAuthInfo(student.getAuthInfo());
     }
 
+    public void updateStudentData(Student student){
+        daoUser.updateStudent(student);
+    }
 }
