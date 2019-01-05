@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class DAOAuth extends DAO {
 
-    public DAOAuth() {
+    public void init() {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS userauth( "+
                 "username varchar(50) PRIMARY KEY," +
                 "password varchar(260));";

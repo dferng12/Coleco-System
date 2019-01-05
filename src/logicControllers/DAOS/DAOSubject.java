@@ -1,9 +1,12 @@
 package logicControllers.DAOS;
 
-import entities.Grade;
 import entities.Student;
 import entities.Subject;
 import entities.Teacher;
+import logicControllers.Absences;
+import logicControllers.Grades;
+import logicControllers.Students;
+import logicControllers.Teachers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,10 +15,10 @@ import java.util.List;
 
 public class DAOSubject extends DAO{
 
-    public DAOSubject(){
+    public void init(){
         String query  = "CREATE TABLE IF NOT EXISTS subjects (" +
                 "name VARCHAR(20) NOT NULL," +
-                "teacher varchar(9) NOT NULL," +
+                "teacher varchar(9)," +
                 "PRIMARY KEY(name));";
         executeUpdate(query);
 
@@ -52,10 +55,7 @@ public class DAOSubject extends DAO{
 
         try {
             if(resultSet.next()){
-                Subject subject = new Subject(resultSet.getString("name"));
-                daoUser.getStudentsFromSubject(subject);
-                daoUser.getTeacherFromSubject(subject);
-                return subject;
+                return new Subject(resultSet.getString("name"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -66,22 +66,15 @@ public class DAOSubject extends DAO{
 
     public void getSubjectsFromStudent(Student user) throws SQLException {
         String query = "SELECT * FROM subjects_students " +
-                "INNER JOIN students ON subjects_students.dni = students.dni" +
-                "INNER JOIN subjects ON subjects_students.subject_name = subjects.name" +
+                "INNER JOIN students ON subjects_students.dni = students.dni " +
+                "INNER JOIN subjects ON subjects_students.subject_name = subjects.name " +
                 "WHERE students.dni = \"" + user.getDni().toString() + "\"";
 
         ResultSet results = execQuery(query);
-        DAOUser daoUser = new DAOUser();
-        DAOGrades daoGrades = new DAOGrades();
-        DAOAbsences daoAbsences = new DAOAbsences();
 
         if (results != null){
             while(results.next()){
-                Subject subject = new Subject(results.getString("name"));
-                daoUser.getTeacherFromSubject(subject);
-                daoAbsences.getAbsences(user, subject);
-                daoGrades.getGrades(user, subject);
-                user.addSubject(subject);
+                user.addSubject(fillSubject(results.getString("subjects.name")));
             }
         }
 
@@ -89,21 +82,14 @@ public class DAOSubject extends DAO{
 
     public void getSubjectsFromTeacher(Teacher user) throws SQLException {
         String query = "SELECT * FROM subjects " +
-                "INNER JOIN teachers ON subjects.teacher = teachers.dni" +
-                "WHERE teachers.dni = " + user.getDni().toString();
+                "INNER JOIN teachers ON subjects.teacher = teachers.dni " +
+                "WHERE teachers.dni = '" + user.getDni().toString() + "';";
 
         ResultSet results = execQuery(query);
-        DAOUser daoUser = new DAOUser();
-        DAOGrades daoGrades = new DAOGrades();
-        DAOAbsences daoAbsences = new DAOAbsences();
 
         if (results != null){
             while(results.next()){
-                Subject subject = new Subject(results.getString("name"));
-                daoUser.getStudentsFromSubject(subject);
-                daoGrades.getGradesFromSubject(subject);
-                daoAbsences.getAbsencesFromSubject(subject);
-                user.addSubject(subject);
+                user.addSubject(fillSubject(results.getString("subjects.name")));
             }
         }
 
@@ -126,6 +112,8 @@ public class DAOSubject extends DAO{
 
     public List<Subject> getAllSubjects() throws SQLException {
         String query = "SELECT * FROM subjects";
+
+
         ResultSet resultSet = execQuery(query);
 
         if (resultSet == null) return new ArrayList<>();
@@ -133,7 +121,7 @@ public class DAOSubject extends DAO{
         ArrayList<Subject> subjects = new ArrayList<>();
 
         while (resultSet.next()){
-            subjects.add(getSubject(resultSet.getString("name")));
+            subjects.add(fillSubject(resultSet.getString("name")));
         }
 
         return subjects;
@@ -152,5 +140,20 @@ public class DAOSubject extends DAO{
     public void removeTeacher(Subject subject) {
         String query = "UPDATE subjects SET teacher = null WHERE name = '" +subject.getName() + "';";
         executeUpdate(query);
+    }
+
+    public Subject fillSubject(String name){
+        Grades grades = new Grades();
+        Absences absences = new Absences();
+        Students students = new Students();
+        Teachers teachers = new Teachers();
+
+        Subject subject = getSubject(name);
+        grades.getAllGradesFromSubject(subject);
+        absences.getAllGradesFromAbsence(subject);
+        students.getAllStudentsFromSubject(subject);
+        teachers.getTeacherFromSubject(subject);
+
+        return subject;
     }
 }

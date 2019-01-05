@@ -6,6 +6,8 @@ import entities.Teacher;
 import logicControllers.DAOS.DAOSubject;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Subjects {
     private DAOSubject daoSubject;
@@ -50,4 +52,23 @@ public class Subjects {
         daoSubject.removeTeacher(subject);
         subject.removeTeacher();
     }
+
+    public List<Subject> getAllSubjects(){
+        try {
+            return daoSubject.getAllSubjects();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return new ArrayList<>();
+    }
+
+    public void addStudentToSubject(Subject subject, Student student){
+        daoSubject.addStudentToSubject(subject,student);
+    }
+
+    public void addSubject(Subject subject){
+        daoSubject.addSubject(subject);
+    }
+
 }

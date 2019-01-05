@@ -33,4 +33,9 @@ public class Grade {
         this.value = value;
         this.percentage = percentage;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value) + " :: " + String.valueOf(percentage) + "%";
+    }
 }

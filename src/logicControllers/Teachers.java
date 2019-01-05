@@ -31,4 +31,7 @@ public class Teachers extends Users{
         daoUser.removeTeacher(teacher);
     }
 
+    public void getTeacherFromSubject(Subject subject) {
+        daoUser.getTeacherFromSubject(subject);
+    }
 }

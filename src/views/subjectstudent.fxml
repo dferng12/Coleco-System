@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.SubjectStudent">
+   <children>
+      <ListView fx:id="grades" layoutX="26.0" layoutY="68.0" prefHeight="233.0" prefWidth="243.0" />
+      <ListView fx:id="absences" layoutX="322.0" layoutY="68.0" prefHeight="233.0" prefWidth="255.0" />
+      <Label fx:id="name" layoutX="269.0" layoutY="28.0" text="Nombre" />
+      <Label layoutX="122.0" layoutY="36.0" text="Grades" />
+      <Label layoutX="424.0" layoutY="36.0" text="Absences" />
+   </children>
+</AnchorPane>

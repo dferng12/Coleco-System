@@ -27,6 +27,12 @@ public class DAO {
         DAOAbsences daoAbsences = new DAOAbsences();
         DAOAuth daoAuth = new DAOAuth();
         DAOMessages daoMessages = new DAOMessages();
+        daoGrades.init();
+        daoSubject.init();
+        daoUser.init();
+        daoAuth.init();
+        daoAbsences.init();
+        daoMessages.init();
 
         daoGrades.fk();
         daoSubject.fk();
@@ -52,6 +58,19 @@ public class DAO {
             logger.debug("EXECUTING QUERY: " +  query);
             Statement statement = connection.createStatement();
             return statement.executeUpdate(query);
+
+        } catch (SQLException e) {
+            logger.warn("SQL QUERY FAILED: " + e.getMessage());
+            return -1;
+        }
+
+    }
+
+    public int executeAdd(String query){
+        try {
+            logger.debug("EXECUTING QUERY: " +  query);
+            Statement statement = connection.createStatement();
+            return statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
 
         } catch (SQLException e) {
             logger.warn("SQL QUERY FAILED: " + e.getMessage());

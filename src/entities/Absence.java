@@ -47,4 +47,9 @@ public class Absence{
         this.reason = reason;
         this.penalty = penalty;
     }
+
+    @Override
+    public String toString() {
+        return date.toString() + "::" + reason + ":: -" + String.valueOf(penalty);
+    }
 }

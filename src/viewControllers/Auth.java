@@ -3,6 +3,7 @@ package viewControllers;
 import entities.Admin;
 import entities.Student;
 import entities.Teacher;
+import entities.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -36,15 +37,17 @@ public class Auth implements Initializable{
         sendAuthInfo.setOnAction(event -> {
             String authUsername = authController.auth(this.username.getText(), this.password.getText());
             if(!authUsername.equals("")){
+                User user = users.getUser(authUsername);
 
                 FXMLLoader loader = null;
                 Stage st =  (Stage) sendAuthInfo.getScene().getWindow();
-                if(users.getUser(authUsername) instanceof Admin){
+                if(user instanceof Admin){
                     loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
-                }else if(users.getUser(authUsername) instanceof Teacher){
+                }else if(user instanceof Teacher){
                     loader = new FXMLLoader(getClass().getResource("../views/indexteacher.fxml"));
-                }else if (users.getUser(authUsername) instanceof Student){
+                }else if (user instanceof Student){
                     loader = new FXMLLoader(getClass().getResource("../views/indexstudent.fxml"));
+
                 }
 
                 Region root;
@@ -54,6 +57,14 @@ public class Auth implements Initializable{
 
                     Scene scene = new Scene(root);
                     st.setScene(scene);
+
+                    if(user instanceof Student){
+                        IndexStudent indexStudent = loader.getController();
+                        indexStudent.setStudent((Student) user);
+                    }else if(user instanceof Teacher){
+                        IndexTeacher indexTeacher = loader.getController();
+                        indexTeacher.setTeacher((Teacher) user);
+                    }
 
                     st.show();
                 } catch (IOException e) {

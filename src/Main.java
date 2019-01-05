@@ -17,12 +17,12 @@ public class Main extends Application {
         logger.warn("COLECO SYSTEM STARTED");
 
         DAO dao = new DAO();
-        dao.createDB();
+        //dao.createDB();
         DAOAuth daoAuth = new DAOAuth();
         daoAuth.createAdmin();
 
         Parent root = FXMLLoader.load(getClass().getResource("views/auth.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Coleco System");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
     }

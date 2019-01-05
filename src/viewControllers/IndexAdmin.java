@@ -1,6 +1,7 @@
 package viewControllers;
 
 import entities.Student;
+import entities.Subject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,7 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import logicControllers.Students;
-import logicControllers.Users;
+import logicControllers.Subjects;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,7 +22,13 @@ import java.util.ResourceBundle;
 public class IndexAdmin implements Initializable{
 
     @FXML
-    private ListView<Student> listsubjects;
+    private ListView<Student> liststudents;
+
+    @FXML
+    private ListView<Subject> listsubjects;
+
+    @FXML
+    private Button addstudenttosubject;
 
     @FXML
     private Button addsubject;
@@ -30,15 +37,25 @@ public class IndexAdmin implements Initializable{
     private Button addstudent;
 
     @FXML
+    private Button addteacher;
+
+    @FXML
+    private Button addteachertosubject;
+
+    @FXML
     private Button logout;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Students students = new Students();
         ObservableList<Student> observableList = FXCollections.observableArrayList();
-
         observableList.addAll(students.getAllStudents());
-        listsubjects.setItems(observableList);
+        liststudents.setItems(observableList);
+
+        Subjects subjects = new Subjects();
+        ObservableList<Subject> subjectObservableList = FXCollections.observableArrayList();
+        subjectObservableList.addAll(subjects.getAllSubjects());
+        listsubjects.setItems(subjectObservableList);
 
         addstudent.setOnAction(event -> {
             Stage st =  (Stage) addstudent.getScene().getWindow();
@@ -51,7 +68,77 @@ public class IndexAdmin implements Initializable{
                 Scene scene = new Scene(root);
                 st.setScene(scene);
 
-                AddStudent indexController = loader.getController();
+                st.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        addsubject.setOnAction(event -> {
+            Stage st =  (Stage) addstudent.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/addsubject.fxml"));
+            Region root;
+
+            try {
+                root =loader.load();
+
+                Scene scene = new Scene(root);
+                st.setScene(scene);
+
+                AddSubject indexController = loader.getController();
+
+                st.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        addstudenttosubject.setOnAction(actionEvent -> {
+            Stage st =  (Stage) addstudenttosubject.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/addstudenttosubject.fxml"));
+            Region root;
+
+            try {
+                root =loader.load();
+
+                Scene scene = new Scene(root);
+                st.setScene(scene);
+
+                AddStudentToSubject controller = loader.getController();
+
+                st.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        addteacher.setOnAction(actionEvent -> {
+            Stage st =  (Stage) addstudent.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/addteacher.fxml"));
+            Region root;
+
+            try {
+                root =loader.load();
+
+                Scene scene = new Scene(root);
+                st.setScene(scene);
+
+                st.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        addteachertosubject.setOnAction(actionEvent -> {
+            Stage st =  (Stage) addstudent.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/addteachertosubject.fxml"));
+            Region root;
+
+            try {
+                root =loader.load();
+
+                Scene scene = new Scene(root);
+                st.setScene(scene);
 
                 st.show();
             } catch (IOException e) {

@@ -10,8 +10,8 @@ public class Subject {
     private final String name;
     private List<Student> students;
     private Teacher teacher;
-    private HashMap<Student, List<Grade>> grades;
-    private HashMap<Student, List<Absence>> absences;
+    private HashMap<Integer, List<Grade>> grades;
+    private HashMap<Integer, List<Absence>> absences;
 
     public Subject(String name){
         this.name = name;
@@ -38,21 +38,21 @@ public class Subject {
     }
 
     public void addGrade(Student student, Grade grade){
-        this.grades.computeIfAbsent(student, k -> new ArrayList<>());
-        this.grades.get(student).add(grade);
+        this.grades.computeIfAbsent(Integer.parseInt(student.getDni().toString().substring(0,8)), k -> new ArrayList<>());
+        this.grades.get(Integer.parseInt(student.getDni().toString().substring(0,8))).add(grade);
     }
 
     public void addAbsence(Student student, Absence absence){
-        this.absences.computeIfAbsent(student, k -> new ArrayList<>());
-        this.absences.get(student).add(absence);
+        this.absences.computeIfAbsent(Integer.parseInt(student.getDni().toString().substring(0,8)), k -> new ArrayList<>());
+        this.absences.get(Integer.parseInt(student.getDni().toString().substring(0,8))).add(absence);
     }
 
     public List<Grade> getGrades(Student student){
-        return this.grades.get(student);
+        return this.grades.get(Integer.parseInt(student.getDni().toString().substring(0,8))) == null ? new ArrayList<>() : this.grades.get(Integer.parseInt(student.getDni().toString().substring(0,8)));
     }
 
     public List<Absence> getAbsences(Student student){
-        return this.absences.get(student);
+        return this.absences.get(Integer.parseInt(student.getDni().toString().substring(0,8))) == null ? new ArrayList<>() : this.absences.get(Integer.parseInt(student.getDni().toString().substring(0,8)));
     }
 
     public Student getStudent(DNI dni){

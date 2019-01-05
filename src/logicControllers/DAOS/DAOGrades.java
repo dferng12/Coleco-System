@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class DAOGrades extends DAO{
 
-    public DAOGrades(){
+    public void init(){
         String query  = "CREATE TABLE IF NOT EXISTS grades (" +
                         "id INT AUTO_INCREMENT PRIMARY KEY," +
                         "grade INT," +
@@ -36,7 +36,7 @@ public class DAOGrades extends DAO{
     }
 
     public void getGrades(Student student, Subject subject) throws SQLException {
-        String query = "SELECT grades.grade, grades.percentage FROM grades_subject_students" +
+        String query = "SELECT grades.id, grades.grade, grades.percentage FROM grades_subject_students" +
                 " INNER JOIN grades ON grades.id = grades_subject_students.id " +
                 "INNER JOIN subjects ON subjects.name = grades_subject_students.name" +
                 " INNER JOIN students ON students.dni = grades_subject_students.dni " +
@@ -49,25 +49,26 @@ public class DAOGrades extends DAO{
 
         while(resultSet.next()){
             Grade grade = new Grade(resultSet.getInt("grade"), resultSet.getInt("percentage"));
+            grade.setId(resultSet.getInt("grades.id"));
             subject.addGrade(student, grade);
         }
     }
 
     public void addGrade(Grade grade){
-        String query = "INSERT INTO grades(grade, percentage) VALUES(\"" + grade.getValue()+"\", \"" + grade.getPercentage() + "\");";
-        executeUpdate(query);
+        String query = "INSERT INTO grades(grade, percentage) VALUES(" + grade.getValue()+", " + grade.getPercentage() + ");";
+        int id = executeAdd(query);
+        grade.setId(id);
     }
 
     public void addGradeToSubject(Subject subject, Grade grade, Student student){
-        String query = "INSERT INTO grades_subject_students(id, name, dni) VALUES('" + grade.getId() + "','" + subject.getName() + "','" + student.getDni().toString() + "');";
+        String query = "INSERT INTO grades_subject_students(id, name, dni) VALUES(" + grade.getId() + ",'" + subject.getName() + "','" + student.getDni().toString() + "');";
         executeUpdate(query);
     }
 
     public void getGradesFromSubject(Subject subject) {
         DAOUser daoUser = new DAOUser();
         try {
-            daoUser.getStudentsFromSubject(subject);
-            for(Student student: subject.getStudents()){
+            for(Student student: daoUser.getStudentsFromSubject(subject)){
                 getGrades(student, subject);
             }
         } catch (SQLException e) {
@@ -76,12 +77,12 @@ public class DAOGrades extends DAO{
     }
 
     public void deleteGradeFromStudent(Subject subject, Student student, Grade grade){
-        String query = "DELETE FROM grades_subject_students WHERE id = '" + grade.getId() + "' AND name = '" + subject.getName() + "' AND dni = '" + student.getDni().toString();
+        String query = "DELETE FROM grades_subject_students WHERE id = " + grade.getId() + " AND name = '" + subject.getName() + "' AND dni = '" + student.getDni().toString();
         executeUpdate(query);
     }
 
     public void deleteGrade(Grade grade){
-        String query = "DELETE FROM grades WHERE id ='" + grade + "'";
+        String query = "DELETE FROM grades WHERE id =" + grade + ";";
         executeUpdate(query);
     }
 }

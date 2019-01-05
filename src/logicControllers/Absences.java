@@ -28,4 +28,8 @@ public class Absences {
             removeAbsenceFromStudent(subject, student, absence);
         }
     }
+
+    public void getAllGradesFromAbsence(Subject subject) {
+        daoAbsences.getAbsencesFromSubject(subject);
+    }
 }

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class DAOAbsences extends DAO{
 
-    public DAOAbsences(){
+    public void init(){
         String query  = "CREATE TABLE IF NOT EXISTS absences (" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
                 "ab_date DATE," +
@@ -38,7 +38,7 @@ public class DAOAbsences extends DAO{
     }
 
     public void getAbsences(Student student, Subject subject) throws SQLException {
-        String query = "SELECT absences.ab_date, absences.reason, absences.penalty FROM absences_subject_students" +
+        String query = "SELECT absences.id, absences.ab_date, absences.reason, absences.penalty FROM absences_subject_students" +
                 " INNER JOIN absences ON absences.id = absences_subject_students.id " +
                 "INNER JOIN subjects ON subjects.name = absences_subject_students.name" +
                 " INNER JOIN students ON students.dni = absences_subject_students.dni " +
@@ -51,13 +51,16 @@ public class DAOAbsences extends DAO{
 
         while(resultSet.next()){
             Absence absence = new Absence(resultSet.getDate("absences.ab_date"), resultSet.getString("absences.reason"), resultSet.getInt("absences.penalty"));
+            absence.setId(resultSet.getInt("absences.id"));
             subject.addAbsence(student, absence);
         }
     }
 
-    public void addAbsence(Absence absence){;
-        String query = "INSERT INTO absences(date, reason, penalty) VALUES(\"" + absence.getDate().toString()  +"\", \"" + absence.getReason()+ "\", \"" + String.valueOf(absence.getPenalty()) + "\");";
-        executeUpdate(query);
+    public void addAbsence(Absence absence){
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String query = "INSERT INTO absences(ab_date, reason, penalty) VALUES(\"" + sdf.format(absence.getDate())  +"\", \"" + absence.getReason()+ "\", \"" + String.valueOf(absence.getPenalty()) + "\");";
+        int id = executeAdd(query);
+        absence.setId(id);
     }
 
     public void addGradeToSubject(Subject subject, Absence absence, Student student){
@@ -65,11 +68,10 @@ public class DAOAbsences extends DAO{
         executeUpdate(query);
     }
 
-    public void  getAbsencesFromSubject(Subject subject){
+    public void getAbsencesFromSubject(Subject subject){
         DAOUser daoUser = new DAOUser();
         try {
-            daoUser.getStudentsFromSubject(subject);
-            for(Student student: subject.getStudents()){
+            for(Student student: daoUser.getStudentsFromSubject(subject)){
                 getAbsences(student, subject);
             }
         } catch (SQLException e) {
@@ -78,12 +80,12 @@ public class DAOAbsences extends DAO{
     }
 
     public void deleteAbsencesFromStudent(Subject subject, Student student, Absence absence){
-        String query = "DELETE FROM grades_absences_students WHERE id = '" + absence.getId() + "' AND name = '" + subject.getName() + "' AND dni = '" + student.getDni().toString();
+        String query = "DELETE FROM grades_absences_students WHERE id = " + absence.getId() + " AND name = '" + subject.getName() + "' AND dni = '" + student.getDni().toString();
         executeUpdate(query);
     }
 
     public void deleteAbsence(Absence absence){
-        String query = "DELETE FROM absences WHERE id = '" + absence.getId() + "';";
+        String query = "DELETE FROM absences WHERE id = " + absence.getId() + ";";
         executeUpdate(query);
     }
 

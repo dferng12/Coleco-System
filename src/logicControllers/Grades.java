@@ -28,4 +28,9 @@ public class Grades {
             removeGradeFromStudent(student, subject, grade);
         }
     }
+
+    public void getAllGradesFromSubject(Subject subject){
+
+        daoGrades.getGradesFromSubject(subject);
+    }
 }

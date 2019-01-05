@@ -1,6 +1,7 @@
 package logicControllers.DAOS;
 
 import entities.*;
+import logicControllers.Students;
 import logicControllers.Teachers;
 
 import java.sql.ResultSet;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class DAOUser extends DAO {
 
-    public DAOUser() {
+    public void init() {
         String query = "CREATE TABLE IF NOT EXISTS students (" +
                 "name VARCHAR(20) NOT NULL," +
                 "subname VARCHAR(45) NOT NULL," +
@@ -118,8 +119,8 @@ public class DAOUser extends DAO {
     }
 
     public void getTeacherFromSubject(Subject subject){
-        String query = "SELECT * FROM teachers INNER JOIN subjects ON teachers.dni = subjects.teacher" +
-                "WHERE subject.name = \"" + subject.getName() + "\"";
+        String query = "SELECT * FROM teachers INNER JOIN subjects ON teachers.dni = subjects.teacher " +
+                "WHERE subjects.name = \"" + subject.getName() + "\"";
 
         ResultSet resultSet = execQuery(query);
 
@@ -137,22 +138,24 @@ public class DAOUser extends DAO {
         }
     }
 
-    public void getStudentsFromSubject(Subject subject) throws SQLException {
+    public List<Student> getStudentsFromSubject(Subject subject) throws SQLException {
         String query = "SELECT * FROM subjects_students " +
-                "INNER JOIN students ON subjects_students.dni = students.dni" +
-                "INNER JOIN subjects ON subjects_students.subject_name = subjects.name" +
-                "WHERE subject.name = \"" + subject.getName() + "\"";
+                "INNER JOIN students ON subjects_students.dni = students.dni " +
+                "INNER JOIN subjects ON subjects_students.subject_name = subjects.name " +
+                "WHERE subjects.name = \"" + subject.getName() + "\"";
 
         ResultSet results = execQuery(query);
+
+        ArrayList<Student> students = new ArrayList<>();
 
         if (results != null){
             while(results.next()){
                 Student student = new Student();
-                student.setDni(DNI.createDNI(results.getString("dni")));
-                student.setName(results.getString("name"));
-                subject.addStudent(student);
+                fillUserData(results, student);
+                students.add(student);
             }
         }
+        return students;
     }
 
     public void addStudent(Student student){
@@ -201,7 +204,6 @@ public class DAOUser extends DAO {
                 user.setAuthInfo(new AuthInfo(resultSet.getString("auth"), auth.getString("password")));
             }
 
-            return;
         } catch (SQLException e) {
             e.printStackTrace();
         }

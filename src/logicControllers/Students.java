@@ -36,4 +36,15 @@ public class Students extends Users{
     public void updateStudentData(Student student){
         daoUser.updateStudent(student);
     }
+
+    public void getAllStudentsFromSubject(Subject subject){
+        try {
+            List<Student> students = daoUser.getStudentsFromSubject(subject);
+            for(Student student: students){
+                subject.addStudent(student);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

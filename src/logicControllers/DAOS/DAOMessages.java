@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class DAOMessages extends DAO{
 
-    public DAOMessages(){
+    public void init(){
         String query = "CREATE TABLE IF NOT EXISTS messages(" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
                 "subject varchar(200) NOT NULL," +

@@ -18,5 +18,8 @@ public class Teacher extends User{
         return this.subjects;
     }
 
-
+    @Override
+    public String toString() {
+        return this.name + " " + this.subname;
+    }
 }
