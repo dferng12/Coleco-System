@@ -138,4 +138,19 @@ public class DAOSubject extends DAO{
 
         return subjects;
     }
+
+    public void removeStudentFromSubject(Student student, Subject subject){
+        String query = "DELETE FROM subjects_students WHERE dni = '" +  student.getDni().toString() + "' AND subject_name = '" + subject.getName();
+        executeUpdate(query);
+    }
+
+    public void removeSubject(Subject subject){
+        String query = "DELETE FROM subjects WHERE name = '" + subject.getName() + "';";
+        executeUpdate(query);
+    }
+
+    public void removeTeacher(Subject subject) {
+        String query = "UPDATE subjects SET teacher = null WHERE name = '" +subject.getName() + "';";
+        executeUpdate(query);
+    }
 }

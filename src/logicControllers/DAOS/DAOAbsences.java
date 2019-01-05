@@ -1,6 +1,7 @@
 package logicControllers.DAOS;
 
 import entities.Absence;
+import entities.Grade;
 import entities.Student;
 import entities.Subject;
 
@@ -75,4 +76,15 @@ public class DAOAbsences extends DAO{
             e.printStackTrace();
         }
     }
+
+    public void deleteAbsencesFromStudent(Subject subject, Student student, Absence absence){
+        String query = "DELETE FROM grades_absences_students WHERE id = '" + absence.getId() + "' AND name = '" + subject.getName() + "' AND dni = '" + student.getDni().toString();
+        executeUpdate(query);
+    }
+
+    public void deleteAbsence(Absence absence){
+        String query = "DELETE FROM absences WHERE id = '" + absence.getId() + "';";
+        executeUpdate(query);
+    }
+
 }

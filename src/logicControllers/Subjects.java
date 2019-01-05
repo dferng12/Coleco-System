@@ -35,7 +35,19 @@ public class Subjects {
         }
     }
 
-    public void removeStudentFromSubject(Subject subject, Student student){
-        return;
+    public void removeStudentFromSubject(Student student, Subject subject){
+        Grades grades = new Grades();
+        grades.removeAllGradesFromStudent(student, subject);
+
+        Absences absences = new Absences();
+        absences.removeAllAbsencesFromStudent(subject, student);
+
+        daoSubject.removeStudentFromSubject(student, subject);
+        subject.removeStudent(student);
+    }
+
+    public void removeTeacherFromSubject(Subject subject){
+        daoSubject.removeTeacher(subject);
+        subject.removeTeacher();
     }
 }

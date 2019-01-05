@@ -1,10 +1,7 @@
 package logicControllers;
 
-import entities.AuthInfo;
 import entities.Student;
 import entities.Subject;
-import logicControllers.DAOS.DAOAuth;
-import logicControllers.DAOS.DAOUser;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -32,7 +29,8 @@ public class Students extends Users{
     }
 
     public void deleteStudent(Student student){
-        return;
+        daoUser.removeStudent(student);
+        daoAuth.deleteAuthInfo(student.getAuthInfo());
     }
 
 }

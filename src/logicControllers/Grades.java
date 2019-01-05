@@ -18,4 +18,14 @@ public class Grades {
         daoGrades.addGradeToSubject(subject, grade, student);
     }
 
+    public void removeGradeFromStudent(Student student, Subject subject, Grade grade){
+        daoGrades.deleteGradeFromStudent(subject,student,grade);
+        daoGrades.deleteGrade(grade);
+    }
+
+    public void removeAllGradesFromStudent(Student student, Subject subject){
+        for(Grade grade: subject.getGrades(student)){
+            removeGradeFromStudent(student, subject, grade);
+        }
+    }
 }

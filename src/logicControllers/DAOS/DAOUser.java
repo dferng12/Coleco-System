@@ -226,4 +226,14 @@ public class DAOUser extends DAO {
         return teachers;
     }
 
+    public void removeStudent(Student student){
+        String query = "DELETE FROM students WHERE dni = '"  + student.getDni().toString() + "';";
+        executeUpdate(query);
+    }
+
+    public void removeTeacher(Teacher teacher){
+        String query = "DELETE FROM teachers WHERE dni = '"  + teacher.getDni().toString() + "';";
+        executeUpdate(query);
+    }
+
 }

@@ -17,4 +17,15 @@ public class Absences {
         daoAbsences.addAbsence(absence);
         daoAbsences.addGradeToSubject(subject, absence, student);
     }
+
+    public void removeAbsenceFromStudent(Subject subject, Student student, Absence absence){
+        daoAbsences.deleteAbsencesFromStudent(subject, student, absence);
+        daoAbsences.deleteAbsence(absence);
+    }
+
+    public void removeAllAbsencesFromStudent(Subject subject, Student student){
+        for(Absence absence: subject.getAbsences(student)){
+            removeAbsenceFromStudent(subject, student, absence);
+        }
+    }
 }

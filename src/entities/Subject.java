@@ -79,6 +79,16 @@ public class Subject {
         return totalGrade;
     }
 
+    public void removeStudent(Student student){
+        students.remove(student);
+        grades.remove(student);
+        absences.remove(student);
+    }
+
+    public void removeTeacher(){
+        this.teacher = null;
+    }
+
     @Override
     public String toString(){
         return name;

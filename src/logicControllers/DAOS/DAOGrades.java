@@ -74,4 +74,14 @@ public class DAOGrades extends DAO{
             e.printStackTrace();
         }
     }
+
+    public void deleteGradeFromStudent(Subject subject, Student student, Grade grade){
+        String query = "DELETE FROM grades_subject_students WHERE id = '" + grade.getId() + "' AND name = '" + subject.getName() + "' AND dni = '" + student.getDni().toString();
+        executeUpdate(query);
+    }
+
+    public void deleteGrade(Grade grade){
+        String query = "DELETE FROM grades WHERE id ='" + grade + "'";
+        executeUpdate(query);
+    }
 }

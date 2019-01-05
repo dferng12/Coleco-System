@@ -27,8 +27,8 @@ public class Teachers extends Users{
         return new ArrayList<>();
     }
 
-    public void deleteTeacher(){
-        return;
+    public void deleteTeacher(Teacher teacher){
+        daoUser.removeTeacher(teacher);
     }
 
 }
