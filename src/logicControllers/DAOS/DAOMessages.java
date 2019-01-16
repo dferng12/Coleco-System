@@ -35,7 +35,7 @@ public class DAOMessages extends DAO{
     }
 
     public Inbox getMessagesFromUser(User user){
-        String query = "SELECT subject, text, teachers.auth as sender FROM messages INNER JOIN teacher " +
+        String query = "SELECT subject, text, teachers.auth as sender FROM messages INNER JOIN teachers " +
                 "ON teachers.dni = messages.sender WHERE messages.receiver = '" + user.getDni().toString() + "';";
         ResultSet resultSet = execQuery(query);
         DAOUser daoUser = new DAOUser();

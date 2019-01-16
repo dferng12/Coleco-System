@@ -64,6 +64,9 @@ public class Auth implements Initializable{
                     }else if(user instanceof Teacher){
                         IndexTeacher indexTeacher = loader.getController();
                         indexTeacher.setTeacher((Teacher) user);
+                    }else if(user instanceof Admin){
+                        IndexAdmin indexadmin = loader.getController();
+                        indexadmin.setAdmin(user);
                     }
 
                     st.show();

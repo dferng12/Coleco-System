@@ -7,7 +7,7 @@ import logicControllers.DAOS.DAO;
 import logicControllers.DAOS.DAOAuth;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-
+//count: student pass: pass
 public class Main extends Application {
 
     private static Logger logger = Logger.getLogger(Main.class);

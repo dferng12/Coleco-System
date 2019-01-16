@@ -2,11 +2,13 @@ package viewControllers;
 
 import entities.Student;
 import entities.Subject;
+import entities.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -45,6 +47,15 @@ public class IndexAdmin implements Initializable{
     @FXML
     private Button logout;
 
+    @FXML
+    private Button messages;
+
+    private User admin;
+
+    public void setAdmin(User admin) {
+        this.admin = admin;
+
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Students students = new Students();
@@ -145,6 +156,24 @@ public class IndexAdmin implements Initializable{
                 e.printStackTrace();
             }
         });
+        messages.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/messages.fxml"));
+            Messages messages = new Messages();
+            loader.setController(messages);
+            try {
+
+
+                Scene scene = new Scene(loader.load(), 600, 400);
+                Stage stage = new Stage();
+                stage.setTitle("Inbox");
+                stage.setScene(scene);
+                messages.setUser(admin);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
 
         logout.setOnAction(event -> {
             Stage st =  (Stage) logout.getScene().getWindow();

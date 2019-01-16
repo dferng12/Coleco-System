@@ -37,6 +37,9 @@ public class IndexTeacher implements Initializable {
     @FXML
     private Button sendmessage;
 
+    @FXML
+    private Button messages;
+
     private Teacher teacher;
 
     public Teacher getTeacher() {
@@ -46,7 +49,6 @@ public class IndexTeacher implements Initializable {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
         ObservableList<Subject> observableList = FXCollections.observableArrayList();
-        System.out.println(teacher.getSubjects().get(0));
         observableList.addAll(teacher.getSubjects());
         subjects.setItems(observableList);
 
@@ -74,6 +76,23 @@ public class IndexTeacher implements Initializable {
             }
         });
 
+        messages.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/messages.fxml"));
+            Messages messages = new Messages();
+            loader.setController(messages);
+            try {
+
+
+                Scene scene = new Scene(loader.load(), 600, 400);
+                Stage stage = new Stage();
+                stage.setTitle("Inbox");
+                stage.setScene(scene);
+                messages.setUser(teacher);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         logout.setOnAction(event -> {
             Stage st =  (Stage) logout.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/auth.fxml"));

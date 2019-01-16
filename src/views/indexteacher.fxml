@@ -4,12 +4,12 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.IndexTeacher">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.IndexTeacher">
    <children>
       <Button fx:id="showinfo" layoutX="472.0" layoutY="46.0" mnemonicParsing="false" text="Show info" />
       <Button fx:id="updateinfo" layoutX="466.0" layoutY="108.0" mnemonicParsing="false" text="Update info" />
       <Button fx:id="logout" layoutX="497.0" layoutY="337.0" mnemonicParsing="false" text="Logout" />
       <ListView fx:id="subjects" layoutX="50.0" layoutY="37.0" prefHeight="332.0" prefWidth="309.0" />
-      <Button fx:id="sendmessage" layoutX="482.0" layoutY="200.0" mnemonicParsing="false" text="Send message" />
+      <Button fx:id="messages" layoutX="472.0" layoutY="187.0" mnemonicParsing="false" text="Messages" />
    </children>
 </AnchorPane>

@@ -33,6 +33,10 @@ public class IndexStudent implements Initializable {
     @FXML
     private Button showinfo;
 
+    @FXML
+    private Button messages;
+
+
     private Student student;
 
     public Student getStudent() {
@@ -69,6 +73,23 @@ public class IndexStudent implements Initializable {
                 e.printStackTrace();
             }
         });
+        messages.setOnAction(actionEvent -> {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/messages.fxml"));
+            Messages messages = new Messages();
+           loader.setController(messages);
+            try {
+
+
+                Scene scene = new Scene(loader.load(), 600, 400);
+                Stage stage = new Stage();
+                stage.setTitle("Inbox");
+                stage.setScene(scene);
+                messages.setUser(student);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
         logout.setOnAction(event -> {
             Stage st =  (Stage) logout.getScene().getWindow();
@@ -88,6 +109,7 @@ public class IndexStudent implements Initializable {
                 e.printStackTrace();
             }
         });
+
 
     }
 

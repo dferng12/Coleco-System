@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import logicControllers.MailCenter;
 import logicControllers.Students;
 import logicControllers.Users;
 
@@ -46,13 +47,13 @@ public class AddStudent implements Initializable{
         create.setOnAction(event -> {
             Students students = new Students();
             Student student = new Student();
-
+            MailCenter mail = MailCenter.getInstance();
             student.setDni(DNI.createDNI(dni.getText()));
             student.setName(name.getText());
             student.setSubname(subname.getText());
             AuthInfo authInfo = new AuthInfo(username.getText(), password.getText());
             student.setAuthInfo(authInfo);
-
+            mail.addUser(student);                          //lo añado tambien al mail
             students.addStudent(student);
         });
 

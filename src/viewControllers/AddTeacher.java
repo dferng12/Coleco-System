@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import logicControllers.MailCenter;
 import logicControllers.Students;
 import logicControllers.Teachers;
 import logicControllers.Users;
@@ -54,7 +55,7 @@ public class AddTeacher implements Initializable{
             teacher.setSubname(subname.getText());
             AuthInfo authInfo = new AuthInfo(username.getText(), password.getText());
             teacher.setAuthInfo(authInfo);
-
+            MailCenter mail = MailCenter.getInstance();
             teachers.addTeacher(teacher);
         });
 
