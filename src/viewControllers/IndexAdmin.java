@@ -48,7 +48,8 @@ public class IndexAdmin implements Initializable{
     private Button logout;
 
     @FXML
-    private Button messages;
+    private Button help;
+
 
     private User admin;
 
@@ -123,6 +124,24 @@ public class IndexAdmin implements Initializable{
             }
         });
 
+        help.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            IndexHelp help = new IndexHelp();
+            loader.setController(help);
+            try {
+
+                Scene scene = new Scene(loader.load(), 800, 600);
+                Stage stage = new Stage();
+                stage.setTitle("Help");
+                stage.setScene(scene);
+                help.setPage("indexadmin");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
         addteacher.setOnAction(actionEvent -> {
             Stage st =  (Stage) addstudent.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/addteacher.fxml"));
@@ -156,23 +175,7 @@ public class IndexAdmin implements Initializable{
                 e.printStackTrace();
             }
         });
-        messages.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/messages.fxml"));
-            Messages messages = new Messages();
-            loader.setController(messages);
-            try {
 
-
-                Scene scene = new Scene(loader.load(), 600, 400);
-                Stage stage = new Stage();
-                stage.setTitle("Inbox");
-                stage.setScene(scene);
-                messages.setUser(admin);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
 
 
         logout.setOnAction(event -> {

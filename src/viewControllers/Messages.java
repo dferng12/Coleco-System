@@ -29,6 +29,9 @@ public class Messages implements Initializable {
     @FXML
     private Button newMessage;
 
+    @FXML
+    private Button help;
+
     private Inbox inbox;
     private User user;
     public Inbox getInbox() {
@@ -42,6 +45,9 @@ public class Messages implements Initializable {
         ObservableList<Message> observableList = FXCollections.observableArrayList();
         observableList.addAll(mail.getMessages(user));
         messages.setItems(observableList);
+        if(user instanceof Student){
+            newMessage.setVisible(false);
+        }
     }
 
     @Override
@@ -65,6 +71,23 @@ public class Messages implements Initializable {
                 e.printStackTrace();
             }
 
+
+        });
+        help.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            IndexHelp help = new IndexHelp();
+            loader.setController(help);
+            try {
+
+                Scene scene = new Scene(loader.load(), 800, 600);
+                Stage stage = new Stage();
+                stage.setTitle("Help");
+                stage.setScene(scene);
+                help.setPage("messages");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         });
 

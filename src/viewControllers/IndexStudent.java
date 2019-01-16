@@ -35,6 +35,8 @@ public class IndexStudent implements Initializable {
 
     @FXML
     private Button messages;
+    @FXML
+    private Button help;
 
 
     private Student student;
@@ -89,6 +91,23 @@ public class IndexStudent implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        });
+        help.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            IndexHelp help = new IndexHelp();
+            loader.setController(help);
+            try {
+
+                Scene scene = new Scene(loader.load(), 800, 600);
+                Stage stage = new Stage();
+                stage.setTitle("Help");
+                stage.setScene(scene);
+                help.setPage("indexstudent");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         });
 
         logout.setOnAction(event -> {

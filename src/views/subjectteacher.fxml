@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="569.0" prefWidth="588.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.SubjectTeacher">
+<AnchorPane prefHeight="569.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.SubjectTeacher">
    <children>
       <Button fx:id="addgrade" layoutX="410.0" layoutY="199.0" mnemonicParsing="false" text="Add Grade" />
       <Button fx:id="addabsence" layoutX="402.0" layoutY="399.0" mnemonicParsing="false" text="Add Absence" />
@@ -22,5 +22,6 @@
       <Button fx:id="showinfo" layoutX="447.0" layoutY="481.0" mnemonicParsing="false" text="Show Info" />
       <Button fx:id="finalgrade" layoutX="374.0" layoutY="43.0" mnemonicParsing="false" text="Calculate Final Grade" />
       <Label fx:id="finalgradevalue" layoutX="435.0" layoutY="77.0" text="Label" />
+      <Button fx:id="help" layoutX="539.0" layoutY="14.0" mnemonicParsing="false" text="Help" />
    </children>
 </AnchorPane>

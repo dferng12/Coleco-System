@@ -48,6 +48,10 @@ public class SubjectTeacher implements Initializable {
     private Button back;
 
     @FXML
+    private Button help;
+
+
+    @FXML
     private TextField value;
 
     @FXML
@@ -73,7 +77,6 @@ public class SubjectTeacher implements Initializable {
         this.teacher = teacher;
 
         ObservableList<Student> observableList = FXCollections.observableArrayList();
-        System.out.println(subject.getStudents().get(0));
         observableList.addAll(subject.getStudents());
         students.setItems(observableList);
 
@@ -126,8 +129,7 @@ public class SubjectTeacher implements Initializable {
         });
 
         finalgrade.setOnAction(actionEvent -> {
-            Students students = new Students();
-            int finalGrade = subject.computeGrade(selectedStudent);
+            double finalGrade = subject.computeGrade(selectedStudent);
             this.finalgradevalue.setText(String.valueOf(finalGrade));
         });
 
@@ -149,6 +151,23 @@ public class SubjectTeacher implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        });
+        help.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            IndexHelp help = new IndexHelp();
+            loader.setController(help);
+            try {
+
+                Scene scene = new Scene(loader.load(), 800, 600);
+                Stage stage = new Stage();
+                stage.setTitle("Help");
+                stage.setScene(scene);
+                help.setPage("subjectteacher");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         });
 
     }

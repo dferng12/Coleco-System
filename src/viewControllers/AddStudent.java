@@ -42,18 +42,19 @@ public class AddStudent implements Initializable{
     @FXML
     private Button back;
 
+    @FXML
+    private Button help;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         create.setOnAction(event -> {
             Students students = new Students();
             Student student = new Student();
-            MailCenter mail = MailCenter.getInstance();
             student.setDni(DNI.createDNI(dni.getText()));
             student.setName(name.getText());
             student.setSubname(subname.getText());
             AuthInfo authInfo = new AuthInfo(username.getText(), password.getText());
             student.setAuthInfo(authInfo);
-            mail.addUser(student);                          //lo añado tambien al mail
             students.addStudent(student);
         });
 
@@ -74,6 +75,24 @@ public class AddStudent implements Initializable{
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        });
+
+        help.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            IndexHelp help = new IndexHelp();
+            loader.setController(help);
+            try {
+
+                Scene scene = new Scene(loader.load(), 800, 600);
+                Stage stage = new Stage();
+                stage.setTitle("Help");
+                stage.setScene(scene);
+                help.setPage("addstudent");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         });
     }
 }

@@ -65,18 +65,21 @@ public class Subject {
         return null;
     }
 
-    public int computeGrade(Student student){
+    public double computeGrade(Student student){
         int totalGrade = 0;
+        String dni1 = student.getDni().toString().substring(0,8);
+        int dni =  Integer.parseInt(dni1);
 
-        for(Grade grade: this.grades.get(student)){
+
+        for(Grade grade: this.grades.get(dni)){
             totalGrade += grade.getValue()*grade.getPercentage();
         }
 
-        for(Absence absence: this.absences.get(absences)){
+        for(Absence absence: this.absences.get(dni)){
             totalGrade -= absence.getPenalty();
         }
 
-        return totalGrade;
+        return totalGrade/100.0;
     }
 
     public void removeStudent(Student student){

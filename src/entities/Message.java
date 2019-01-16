@@ -47,7 +47,7 @@ public class Message {
 
     @Override
     public String toString() {
-        return "from "+ this.sender + " subject " + this.subject;
+        return "From:: "+ this.sender + " Subject:: " + this.subject;
     }
 
 

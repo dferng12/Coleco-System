@@ -5,11 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Auth">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Auth">
    <children>
       <Button fx:id="sendAuthInfo" layoutX="284.0" layoutY="338.0" mnemonicParsing="false" text="Button" />
       <TextField fx:id="username" layoutX="215.0" layoutY="187.0" promptText="Username" />
       <TextField fx:id="password" layoutX="215.0" layoutY="244.0" promptText="Password" />
-      <Label fx:id="status" layoutX="279.0" layoutY="122.0" text="STATUS" />
+      <Label fx:id="status" layoutX="279.0" layoutY="122.0" text="LOGIN" />
+      <Button fx:id="help" layoutX="493.0" layoutY="30.0" mnemonicParsing="false" text="Help" />
    </children>
 </AnchorPane>

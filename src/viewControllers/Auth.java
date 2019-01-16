@@ -24,6 +24,8 @@ public class Auth implements Initializable{
     @FXML
     private Button sendAuthInfo;
     @FXML
+    private Button help;
+    @FXML
     private TextField username;
     @FXML
     private TextField password;
@@ -74,6 +76,23 @@ public class Auth implements Initializable{
                     e.printStackTrace();
                 }
             }
+        });
+        help.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            IndexHelp help = new IndexHelp();
+            loader.setController(help);
+            try {
+
+                Scene scene = new Scene(loader.load(), 800, 600);
+                Stage stage = new Stage();
+                stage.setTitle("Help");
+                stage.setScene(scene);
+                help.setPage("auth");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         });
     }
 }

@@ -32,6 +32,8 @@ public class MessageView implements Initializable {
     private Button back;
     @FXML
     private Button send;
+    @FXML
+    private Button help;
 
     private Message message;
 
@@ -65,20 +67,35 @@ public class MessageView implements Initializable {
             Stage st =  (Stage) back.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/messages.fxml"));
             Region root;
-
+            Messages messages = new Messages();
+            loader.setController(messages);
             try {
                 root =loader.load();
-
                 Scene scene = new Scene(root);
                 st.setScene(scene);
-
-                Auth auth = loader.getController();
-
+                messages.setUser(user);
                 st.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
+
+        });
+        help.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            IndexHelp help = new IndexHelp();
+            loader.setController(help);
+            try {
+
+                Scene scene = new Scene(loader.load(), 800, 600);
+                Stage stage = new Stage();
+                stage.setTitle("Help");
+                stage.setScene(scene);
+                help.setPage("messageview");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         });
         send.setOnAction(event -> {
