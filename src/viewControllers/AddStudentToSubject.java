@@ -55,7 +55,7 @@ public class AddStudentToSubject implements Initializable {
 
         add.setOnAction(actionEvent -> {
             subjects.addStudentToSubject(this.subject, this.student);
-
+            student.getSubjects();
             Stage st =  (Stage) add.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
             Region root;
@@ -71,6 +71,7 @@ public class AddStudentToSubject implements Initializable {
                 e.printStackTrace();
             }
         });
+
         help.setOnAction(actionEvent -> {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();

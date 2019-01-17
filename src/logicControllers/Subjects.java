@@ -64,6 +64,8 @@ public class Subjects {
     }
 
     public void addStudentToSubject(Subject subject, Student student){
+        student.addSubject(subject);
+        subject.addStudent(student);
         daoSubject.addStudentToSubject(subject,student);
     }
 

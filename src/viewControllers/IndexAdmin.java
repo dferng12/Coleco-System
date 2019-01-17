@@ -224,12 +224,27 @@ public class IndexAdmin implements Initializable{
             Users users = new Users();
             User user = listusers.getSelectionModel().getSelectedItem();
             DAOUser dao = new DAOUser();
+            DAOSubject daoSub = new DAOSubject();
             DAOAuth daoAuth = new DAOAuth();
             if(user instanceof Student){
-                dao.removeStudent((Student) user);
-                daoAuth.deleteAuthInfo(user.getAuthInfo());
+                Student studentSelected = (Student)user;
+                List <Subject> subjectsStudent = listsubjects.getItems();
+                for(int i = 0; i<subjectsStudent.size(); i++){
+                    if(subjectsStudent.get(i).getStudent(studentSelected.getDni())!=null){ //Si el alumno "existe" en la asignatura
+                        daoSub.removeStudentFromSubject(studentSelected, subjectsStudent.get(i)); //Se elimina
+                    }
+                }
+                dao.removeStudent(studentSelected);
+                daoAuth.deleteAuthInfo(studentSelected.getAuthInfo());
                 listusers.getItems().remove(user);
             }else if(user instanceof Teacher){
+                Teacher teacherSelected = (Teacher) user;
+                List <Subject> subjectsStudent = listsubjects.getItems();
+                for(int i = 0; i<subjectsStudent.size(); i++){ //Asignaturas de la lista que pueden tener al profesor seleccionado como profesor
+                    if(subjectsStudent.get(i).getTeacher()!=null && subjectsStudent.get(i).getTeacher().getDni().toString().equals(teacherSelected.getDni().toString())) {
+                        daoSub.removeTeacher(subjectsStudent.get(i)); //Si lo tienen como profesor, se elimina
+                    }
+                }
                 dao.removeTeacher((Teacher) user);
                 daoAuth.deleteAuthInfo(user.getAuthInfo());
                 listusers.getItems().remove(user);
