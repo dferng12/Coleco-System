@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import logicControllers.DAOS.DAOAuth;
 import logicControllers.DAOS.DAOUser;
@@ -228,42 +230,32 @@ public class IndexAdmin implements Initializable{
             }
         });
 
-        backup.setOnAction(event -> { //TODO probar en linux, errores en windows por la cmd
+        backup.setOnAction(event -> {
             try {
 
-                /*NOTE: Getting path to the Jar file being executed*/
-                /*NOTE: YourImplementingClass-> replace with the class executing the code*/
-                String dir = Messages.class.getResource("..").toString();
-
-                /*NOTE: Creating Database Constraints*/
                 String dbName = "ColecoSystem";
                 String dbUser = "colecouser";
                 String dbPass = "colecopass";
 
-                /*NOTE: Creating Path Constraints for folder saving*/
-                /*NOTE: Here the backup folder is created for saving inside it*/
-                String folderPath = dir + "\\backup";
+                String savePath = "";
+                DirectoryChooser directoryChooser = new DirectoryChooser();
+                File selectedDirectory = directoryChooser.showDialog(addstudent.getScene().getWindow());
+                if(selectedDirectory!=null) {
+                    savePath = selectedDirectory.getAbsolutePath() + "\backup.sql";
 
-                /*NOTE: Creating Folder if it does not exist*/
-                File f1 = new File(folderPath);
-                f1.mkdir();
+                    /*NOTE: Used to create a cmd command*/
+                    String executeCmd = "mysqldump --user " + dbUser + " --password=" + dbPass + " " + dbName + " > " + savePath;
 
-                /*NOTE: Creating Path Constraints for backup saving*/
-                /*NOTE: Here the backup is saved in a folder called backup with the name backup.sql*/
-                String savePath = "\"" + dir + "\\backup\\" + "backup.sql\"";
+                    /*NOTE: Executing the command here*/
+                    Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
+                    int processComplete = runtimeProcess.waitFor();
 
-                /*NOTE: Used to create a cmd command*/
-                String executeCmd = "mysqldump -u" + dbUser + " -p" + dbPass + " --database " + dbName + " -r " + savePath;
-
-                /*NOTE: Executing the command here*/
-                Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
-                int processComplete = runtimeProcess.waitFor();
-
-                /*NOTE: processComplete=0 if correctly executed, will contain other values if not*/
-                if (processComplete == 0) {
-                    System.out.println("Backup Complete");
-                } else {
-                    System.out.println("Backup Failure");
+                    /*NOTE: processComplete=0 if correctly executed, will contain other values if not*/
+                    if (processComplete == 0) {
+                        System.out.println("Backup Complete");
+                    } else {
+                        System.out.println("Backup Failure");
+                    }
                 }
 
             } catch (IOException | InterruptedException ex) {
