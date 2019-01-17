@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import logicControllers.DAOS.DAOUser;
 import logicControllers.Students;
 import logicControllers.Subjects;
 
@@ -50,6 +51,8 @@ public class IndexAdmin implements Initializable{
     @FXML
     private Button help;
 
+    @FXML
+    private Button removestudent;
 
     private User admin;
 
@@ -194,6 +197,15 @@ public class IndexAdmin implements Initializable{
                 st.show();
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        });
+
+        removestudent.setOnAction(event -> {
+            ObservableList<Student> studentSelection = liststudents.getSelectionModel().getSelectedItems();
+            for(int i = 0; i<studentSelection.size(); i++){
+                DAOUser dao = new DAOUser();
+                dao.removeStudent(studentSelection.get(i));
+                liststudents.getItems().remove(liststudents.getItems().indexOf(studentSelection.get(i)));
             }
         });
 

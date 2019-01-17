@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Coleco-System.iml" filepath="$PROJECT_DIR$/.idea/Coleco-System.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Coleco-System.iml" filepath="$PROJECT_DIR$/Coleco-System.iml" />
     </modules>
   </component>
 </project>

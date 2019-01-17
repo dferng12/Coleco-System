@@ -87,7 +87,7 @@ public class DAO {
     private boolean connect(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ColecoSystem", "colecouser", "colecopass");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ColecoSystem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "colecouser", "colecopass");
             return connection.isValid(50000);
         }catch (ClassNotFoundException | SQLException e){
             logger.warn("FAILED TO CONNECT TO DB: " + e.getMessage());
