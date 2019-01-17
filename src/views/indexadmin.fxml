@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.IndexAdmin">
    <children>
-      <ListView fx:id="liststudents" layoutX="27.0" layoutY="14.0" prefHeight="372.0" prefWidth="177.0" />
+      <ListView fx:id="listusers" layoutX="27.0" layoutY="14.0" prefHeight="372.0" prefWidth="177.0" />
       <Button fx:id="addstudent" layoutX="460.0" layoutY="29.0" mnemonicParsing="false" text="Add Student" />
       <Button fx:id="addsubject" layoutX="461.0" layoutY="67.0" mnemonicParsing="false" text="Add Subject" />
       <Button fx:id="logout" layoutX="478.0" layoutY="351.0" mnemonicParsing="false" text="Logout" />
@@ -15,6 +15,7 @@
       <Button fx:id="addteacher" layoutX="459.0" layoutY="149.0" mnemonicParsing="false" text="Add Teacher" />
       <Button fx:id="addteachertosubject" layoutX="433.0" layoutY="187.0" mnemonicParsing="false" text="Add Teacher To Subject" />
       <Button fx:id="help" layoutX="570.0" layoutY="14.0" mnemonicParsing="false" text="Help" />
-      <Button fx:id="removestudent" layoutX="453.0" layoutY="226.0" mnemonicParsing="false" text="Remove Student" />
+      <Button fx:id="removeuser" layoutX="453.0" layoutY="226.0" mnemonicParsing="false" text="Remove User" />
+      <Button fx:id="backup" layoutX="452.0" layoutY="313.0" mnemonicParsing="false" text="Backup Database" />
    </children>
 </AnchorPane>

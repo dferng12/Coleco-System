@@ -1,9 +1,6 @@
 package viewControllers;
 
-import entities.Admin;
-import entities.Student;
-import entities.Teacher;
-import entities.User;
+import entities.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -40,7 +37,6 @@ public class Auth implements Initializable{
             String authUsername = authController.auth(this.username.getText(), this.password.getText());
             if(!authUsername.equals("")){
                 User user = users.getUser(authUsername);
-
                 FXMLLoader loader = null;
                 Stage st =  (Stage) sendAuthInfo.getScene().getWindow();
                 if(user instanceof Admin){

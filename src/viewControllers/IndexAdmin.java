@@ -2,30 +2,37 @@ package viewControllers;
 
 import entities.Student;
 import entities.Subject;
+import entities.Teacher;
 import entities.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import logicControllers.DAOS.DAOAuth;
 import logicControllers.DAOS.DAOUser;
 import logicControllers.Students;
 import logicControllers.Subjects;
+import logicControllers.Teachers;
+import logicControllers.Users;
+import sun.applet.Main;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.security.CodeSource;
 import java.util.ResourceBundle;
 
 public class IndexAdmin implements Initializable{
 
     @FXML
-    private ListView<Student> liststudents;
+    private ListView<User> listusers;
 
     @FXML
     private ListView<Subject> listsubjects;
@@ -52,7 +59,10 @@ public class IndexAdmin implements Initializable{
     private Button help;
 
     @FXML
-    private Button removestudent;
+    private Button removeuser;
+
+    @FXML
+    private Button backup;
 
     private User admin;
 
@@ -63,9 +73,11 @@ public class IndexAdmin implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Students students = new Students();
-        ObservableList<Student> observableList = FXCollections.observableArrayList();
+        Teachers teachers = new Teachers();
+        ObservableList<User> observableList = FXCollections.observableArrayList();
         observableList.addAll(students.getAllStudents());
-        liststudents.setItems(observableList);
+        observableList.addAll(teachers.getAllTeachers());
+        listusers.setItems(observableList);
 
         Subjects subjects = new Subjects();
         ObservableList<Subject> subjectObservableList = FXCollections.observableArrayList();
@@ -200,12 +212,62 @@ public class IndexAdmin implements Initializable{
             }
         });
 
-        removestudent.setOnAction(event -> {
-            ObservableList<Student> studentSelection = liststudents.getSelectionModel().getSelectedItems();
-            for(int i = 0; i<studentSelection.size(); i++){
-                DAOUser dao = new DAOUser();
-                dao.removeStudent(studentSelection.get(i));
-                liststudents.getItems().remove(liststudents.getItems().indexOf(studentSelection.get(i)));
+        removeuser.setOnAction(event -> {
+            Users users = new Users();
+            User user = listusers.getSelectionModel().getSelectedItem();
+            DAOUser dao = new DAOUser();
+            //DAOAuth daoAuth = new DAOAuth(); TODO eliminar authInfo
+            if(user instanceof Student){
+                //daoAuth.deleteAuthInfo(user.getAuthInfo());
+                dao.removeStudent((Student) user);
+                listusers.getItems().remove(user);
+            }else if(user instanceof Teacher){
+                //daoAuth.deleteAuthInfo(user.getAuthInfo());
+                dao.removeTeacher((Teacher) user);
+                listusers.getItems().remove(user);
+            }
+        });
+
+        backup.setOnAction(event -> { //TODO probar en linux, errores en windows por la cmd
+            try {
+
+                /*NOTE: Getting path to the Jar file being executed*/
+                /*NOTE: YourImplementingClass-> replace with the class executing the code*/
+                String dir = Messages.class.getResource("..").toString();
+
+                /*NOTE: Creating Database Constraints*/
+                String dbName = "ColecoSystem";
+                String dbUser = "colecouser";
+                String dbPass = "colecopass";
+
+                /*NOTE: Creating Path Constraints for folder saving*/
+                /*NOTE: Here the backup folder is created for saving inside it*/
+                String folderPath = dir + "\\backup";
+
+                /*NOTE: Creating Folder if it does not exist*/
+                File f1 = new File(folderPath);
+                f1.mkdir();
+
+                /*NOTE: Creating Path Constraints for backup saving*/
+                /*NOTE: Here the backup is saved in a folder called backup with the name backup.sql*/
+                String savePath = "\"" + dir + "\\backup\\" + "backup.sql\"";
+
+                /*NOTE: Used to create a cmd command*/
+                String executeCmd = "mysqldump -u" + dbUser + " -p" + dbPass + " --database " + dbName + " -r " + savePath;
+
+                /*NOTE: Executing the command here*/
+                Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
+                int processComplete = runtimeProcess.waitFor();
+
+                /*NOTE: processComplete=0 if correctly executed, will contain other values if not*/
+                if (processComplete == 0) {
+                    System.out.println("Backup Complete");
+                } else {
+                    System.out.println("Backup Failure");
+                }
+
+            } catch (IOException | InterruptedException ex) {
+                ex.printStackTrace();
             }
         });
 
