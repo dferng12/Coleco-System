@@ -4,18 +4,20 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.IndexAdmin">
+<AnchorPane fx:id="panel" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.IndexAdmin">
    <children>
       <ListView fx:id="listusers" layoutX="27.0" layoutY="14.0" prefHeight="372.0" prefWidth="177.0" />
-      <Button fx:id="addstudent" layoutX="460.0" layoutY="29.0" mnemonicParsing="false" text="Add Student" />
-      <Button fx:id="addsubject" layoutX="461.0" layoutY="67.0" mnemonicParsing="false" text="Add Subject" />
-      <Button fx:id="logout" layoutX="478.0" layoutY="351.0" mnemonicParsing="false" text="Logout" />
+      <Button fx:id="addstudent" layoutX="433.0" layoutY="52.0" mnemonicParsing="false" text="Add Student" />
+      <Button fx:id="addsubject" layoutX="530.0" layoutY="52.0" mnemonicParsing="false" text="Add Subject" />
+      <Button fx:id="logout" layoutX="503.0" layoutY="345.0" mnemonicParsing="false" text="Logout" />
       <ListView fx:id="listsubjects" layoutX="236.0" layoutY="14.0" prefHeight="372.0" prefWidth="177.0" />
-      <Button fx:id="addstudenttosubject" layoutX="420.0" layoutY="105.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="198.0" text="Add Student to Subject" />
-      <Button fx:id="addteacher" layoutX="459.0" layoutY="149.0" mnemonicParsing="false" text="Add Teacher" />
-      <Button fx:id="addteachertosubject" layoutX="433.0" layoutY="187.0" mnemonicParsing="false" text="Add Teacher To Subject" />
+      <Button fx:id="addstudenttosubject" layoutX="421.0" layoutY="84.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="198.0" text="Add Student to Subject" />
+      <Button fx:id="addteacher" layoutX="475.0" layoutY="118.0" mnemonicParsing="false" text="Add Teacher" />
+      <Button fx:id="addteachertosubject" layoutX="445.0" layoutY="151.0" mnemonicParsing="false" text="Add Teacher To Subject" />
       <Button fx:id="help" layoutX="570.0" layoutY="14.0" mnemonicParsing="false" text="Help" />
-      <Button fx:id="removeuser" layoutX="453.0" layoutY="226.0" mnemonicParsing="false" text="Remove User" />
-      <Button fx:id="backup" layoutX="452.0" layoutY="313.0" mnemonicParsing="false" text="Backup Database" />
+      <Button fx:id="removeuser" layoutX="432.0" layoutY="188.0" mnemonicParsing="false" text="Remove User" />
+      <Button fx:id="backup" layoutX="477.0" layoutY="312.0" mnemonicParsing="false" text="Backup Database" />
+      <Button fx:id="removesubject" layoutX="530.0" layoutY="188.0" mnemonicParsing="false" text="Remove Subject" />
+      <Button fx:id="removestudentsubject" layoutX="443.0" layoutY="221.0" mnemonicParsing="false" text="Remove Student from Subject" />
    </children>
 </AnchorPane>

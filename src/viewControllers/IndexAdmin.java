@@ -10,29 +10,29 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import logicControllers.DAOS.DAOAuth;
+import logicControllers.DAOS.DAOSubject;
 import logicControllers.DAOS.DAOUser;
 import logicControllers.Students;
 import logicControllers.Subjects;
 import logicControllers.Teachers;
 import logicControllers.Users;
-import sun.applet.Main;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.security.CodeSource;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class IndexAdmin implements Initializable{
 
+    private static Subject selectedSubject;
     @FXML
     private ListView<User> listusers;
 
@@ -62,6 +62,12 @@ public class IndexAdmin implements Initializable{
 
     @FXML
     private Button removeuser;
+
+    @FXML
+    private Button removesubject;
+
+    @FXML
+    private Button removestudentsubject;
 
     @FXML
     private Button backup;
@@ -218,15 +224,49 @@ public class IndexAdmin implements Initializable{
             Users users = new Users();
             User user = listusers.getSelectionModel().getSelectedItem();
             DAOUser dao = new DAOUser();
-            //DAOAuth daoAuth = new DAOAuth(); TODO eliminar authInfo
+            DAOAuth daoAuth = new DAOAuth();
             if(user instanceof Student){
-                //daoAuth.deleteAuthInfo(user.getAuthInfo());
                 dao.removeStudent((Student) user);
+                daoAuth.deleteAuthInfo(user.getAuthInfo());
                 listusers.getItems().remove(user);
             }else if(user instanceof Teacher){
-                //daoAuth.deleteAuthInfo(user.getAuthInfo());
                 dao.removeTeacher((Teacher) user);
+                daoAuth.deleteAuthInfo(user.getAuthInfo());
                 listusers.getItems().remove(user);
+            }
+        });
+
+        removesubject.setOnAction(event -> {
+            DAOSubject dao = new DAOSubject();
+            Subject subject = listsubjects.getSelectionModel().getSelectedItem();
+            dao.removeSubject(subject);
+            listsubjects.getItems().remove(subject);
+        });
+
+        removestudentsubject.setOnAction(event -> {
+            if(listsubjects.getSelectionModel().getSelectedItem() == null){
+                Alert dialog = new Alert(Alert.AlertType.ERROR);
+                dialog.setTitle("Subject not selected");
+                dialog.setContentText("Select a subject first to remove a student from it.");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
+            }else{
+                selectedSubject = listsubjects.getSelectionModel().getSelectedItem();
+                Stage st =  (Stage) removestudentsubject.getScene().getWindow();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/removestudentfromsubject.fxml"));
+                Region root;
+
+                try {
+                    root =loader.load();
+
+                    Scene scene = new Scene(root);
+                    st.setScene(scene);
+
+                    st.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
 
@@ -263,5 +303,9 @@ public class IndexAdmin implements Initializable{
             }
         });
 
+    }
+
+    public static Subject getSelectedSubject(){
+        return selectedSubject;
     }
 }

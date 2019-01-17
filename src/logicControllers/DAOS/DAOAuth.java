@@ -63,7 +63,7 @@ public class DAOAuth extends DAO {
     }
 
     public void deleteAuthInfo(AuthInfo authInfo){
-        String query = "DELETE FROM userauth WHERE username ='" + authInfo.getUser() + "';";
+        String query = "DELETE FROM userauth WHERE username = '" + authInfo.getUser() + "';";
         executeUpdate(query);
     }
 }

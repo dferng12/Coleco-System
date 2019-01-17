@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
@@ -61,6 +62,19 @@ public class AddTeacher implements Initializable{
             teacher.setAuthInfo(authInfo);
             MailCenter mail = MailCenter.getInstance();
             teachers.addTeacher(teacher);
+
+            Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+            dialog.setTitle("Teacher created");
+            dialog.setContentText("The teacher "+name.getText()+" with DNI: "+dni.getText()+" has been successfully created.");
+            dialog.setHeaderText(null);
+            dialog.showAndWait();
+            username.setText("");
+            password.setText("");
+            dni.setText("");
+            name.setText("");
+            subname.setText("");
+            username.setText("");
+            password.setText("");
         });
 
         back.setOnAction(event -> {

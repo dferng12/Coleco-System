@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import logicControllers.AuthController;
 import logicControllers.Users;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,6 +73,14 @@ public class Auth implements Initializable{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }else{
+                Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+                dialog.setTitle("Error");
+                dialog.setContentText("Username or password introduced are not correct, please try again.");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
+                username.setText("");
+                password.setText("");
             }
         });
         help.setOnAction(actionEvent -> {

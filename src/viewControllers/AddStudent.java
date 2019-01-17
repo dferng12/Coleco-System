@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
@@ -56,6 +57,19 @@ public class AddStudent implements Initializable{
             AuthInfo authInfo = new AuthInfo(username.getText(), password.getText());
             student.setAuthInfo(authInfo);
             students.addStudent(student);
+
+            Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+            dialog.setTitle("Student created");
+            dialog.setContentText("The student "+name.getText()+" with DNI: "+dni.getText()+" has been successfully created.");
+            dialog.setHeaderText(null);
+            dialog.showAndWait();
+            username.setText("");
+            password.setText("");
+            dni.setText("");
+            name.setText("");
+            subname.setText("");
+            username.setText("");
+            password.setText("");
         });
 
         back.setOnAction(event -> {

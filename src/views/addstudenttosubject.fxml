@@ -8,7 +8,7 @@
    <children>
       <Button fx:id="add" layoutX="226.0" layoutY="538.0" mnemonicParsing="false" text="Add" />
       <ListView fx:id="listsubjects" layoutX="26.0" layoutY="14.0" prefHeight="504.0" prefWidth="200.0" />
-      <ListView fx:id="liststudents" layoutX="291.0" layoutY="14.0" prefHeight="504.0" prefWidth="200.0" />
+      <ListView fx:id="liststudents" layoutX="281.0" layoutY="14.0" prefHeight="504.0" prefWidth="200.0" />
       <Button fx:id="help" layoutX="504.0" layoutY="14.0" mnemonicParsing="false" text="Help" />
    </children>
 </AnchorPane>

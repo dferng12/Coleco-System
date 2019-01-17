@@ -5,6 +5,7 @@ import logicControllers.Students;
 import logicControllers.Teachers;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -200,7 +201,7 @@ public class DAOUser extends DAO {
             String query = "SELECT * FROM userauth WHERE username = '" + resultSet.getString("auth") + "';";
             ResultSet auth = execQuery(query);
 
-            if(resultSet.next()){
+            if(auth.next()){
                 user.setAuthInfo(new AuthInfo(resultSet.getString("auth"), auth.getString("password")));
             }
 

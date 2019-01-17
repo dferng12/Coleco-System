@@ -152,6 +152,7 @@ public class SubjectTeacher implements Initializable {
                 e.printStackTrace();
             }
         });
+
         help.setOnAction(actionEvent -> {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
