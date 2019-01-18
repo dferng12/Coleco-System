@@ -4,13 +4,13 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.IndexTeacher">
+<AnchorPane prefHeight="400.0" prefWidth="656.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.IndexTeacher">
    <children>
-      <Button fx:id="showinfo" layoutX="472.0" layoutY="108.0" mnemonicParsing="false" text="Show info" />
-      <Button fx:id="updateinfo" layoutX="466.0" layoutY="145.0" mnemonicParsing="false" text="Update info" />
-      <Button fx:id="logout" layoutX="497.0" layoutY="337.0" mnemonicParsing="false" text="Logout" />
+      <Button fx:id="showinfo" layoutX="460.0" layoutY="108.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Show info" />
+      <Button fx:id="updateinfo" layoutX="460.0" layoutY="144.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Update info" />
+      <Button fx:id="logout" layoutX="535.0" layoutY="337.0" mnemonicParsing="false" text="Logout" />
       <ListView fx:id="subjects" layoutX="50.0" layoutY="37.0" prefHeight="332.0" prefWidth="309.0" />
-      <Button fx:id="messages" layoutX="472.0" layoutY="187.0" mnemonicParsing="false" text="Messages" />
-      <Button fx:id="help" layoutX="536.0" layoutY="14.0" mnemonicParsing="false" text="Help" />
+      <Button fx:id="messages" layoutX="460.0" layoutY="187.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Messages" />
+      <Button fx:id="help" layoutX="567.0" layoutY="24.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
    </children>
 </AnchorPane>

@@ -82,7 +82,7 @@ public class IndexStudent implements Initializable {
             try {
 
 
-                Scene scene = new Scene(loader.load(), 600, 400);
+                Scene scene = new Scene(loader.load(), 700, 400);
                 Stage stage = new Stage();
                 stage.setTitle("Inbox");
                 stage.setScene(scene);

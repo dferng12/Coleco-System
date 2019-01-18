@@ -4,10 +4,11 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.RemoveStudentFromSubject">
+<AnchorPane prefHeight="400.0" prefWidth="641.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.RemoveStudentFromSubject">
    <children>
       <ListView fx:id="studentssubject" layoutX="51.0" layoutY="37.0" prefHeight="307.0" prefWidth="315.0" />
       <Button fx:id="remove" layoutX="432.0" layoutY="160.0" mnemonicParsing="false" text="Remove Student" />
-      <Button fx:id="back" layoutX="464.0" layoutY="200.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="back" layoutX="432.0" layoutY="278.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="Back" />
+      <Button fx:id="help" layoutX="550.0" layoutY="24.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
    </children>
 </AnchorPane>

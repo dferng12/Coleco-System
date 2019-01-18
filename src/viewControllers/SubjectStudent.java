@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -88,6 +89,24 @@ public class SubjectStudent implements Initializable {
                 e.printStackTrace();
             }
 
+        });
+        back.setOnAction(event -> {
+            Stage st =  (Stage) back.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexstudent.fxml"));
+            Region root;
+
+            try {
+                root =loader.load();
+
+                Scene scene = new Scene(root);
+                st.setScene(scene);
+
+                IndexAdmin indexController = loader.getController();
+
+                st.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
     }

@@ -21,6 +21,7 @@ public class Help {
         index.add("indexteacher");
         index.add("messages");
         index.add("messageview");
+        index.add("removestudentfromsubject");
         index.add("subjectstudent");
         index.add("subjectteacher");
 
@@ -33,7 +34,7 @@ public class Help {
     public String getText(String page){
         if(page.equals("indexadmin")){
             return "Ventana principal del administrador \n" +
-                    "En ésta página se tiene control total al sistema, se pueden añadir y borrar alumnos" +
+                    "En ésta página se tiene control total al sistema, se pueden añadir y borrar alumnos, " +
                     "profesores y asignaturas, tambien podemos ver todos los alumnos y asignaturas existentes en el sistema" +
                     "y añadir alumnos y profesores a las asignaturas. ";
 
@@ -84,9 +85,13 @@ public class Help {
             return "Ventana de asignaturas. \n" +
                     "El alumno puede ver sus asignaturas y sus notas.";
 
-        }else if(page.equals("subjectsteacher")){
+        }else if(page.equals("subjectsteacher")) {
             return "Ventana de asignatura.\n" +
                     "El profesor puede ver los alumnos de sus asignaturas y añadirles notas y ausencias.";
+
+        }else if(page.equals("removestudentfromsubject")){
+             return "Ventana de borrado de alumno de asignatura.\n" +
+                "El administrador puede expulsar a un alumno de la asignatura elegida";
         }else
             return "error de página";
     }

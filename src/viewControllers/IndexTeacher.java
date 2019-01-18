@@ -111,6 +111,23 @@ public class IndexTeacher implements Initializable {
                 e.printStackTrace();
             }
         });
+        messages.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/messages.fxml"));
+            Messages messages = new Messages();
+            loader.setController(messages);
+            try {
+
+
+                Scene scene = new Scene(loader.load(), 700, 400);
+                Stage stage = new Stage();
+                stage.setTitle("Inbox");
+                stage.setScene(scene);
+                messages.setUser(teacher);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
     }
 

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="665.0" style="-fx-background-color: LIGHTSKYBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ListView fx:id="index" layoutX="50.0" layoutY="37.0" prefHeight="332.0" prefWidth="243.0" />
       <TextArea fx:id="info" layoutX="386.0" layoutY="41.0" prefHeight="320.0" prefWidth="243.0" wrapText="true" />

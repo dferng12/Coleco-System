@@ -4,14 +4,14 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="546.0" prefWidth="464.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.IndexStudent">
+<AnchorPane prefHeight="546.0" prefWidth="644.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.IndexStudent">
    <children>
-      <ListView fx:id="subjects" layoutX="177.0" layoutY="29.0" prefHeight="489.0" prefWidth="200.0" />
-      <Button fx:id="logout" layoutX="58.0" layoutY="492.0" mnemonicParsing="false" text="Logout" />
-      <Button fx:id="showinfo" layoutX="41.0" layoutY="452.0" mnemonicParsing="false" text="Student Info" />
-      <Button fx:id="updateinfo" layoutX="15.0" layoutY="410.0" mnemonicParsing="false" text="Update Student Info" />
-      <Button fx:id="changepassword" layoutX="23.0" layoutY="370.0" mnemonicParsing="false" text="Change password" />
-      <Button fx:id="messages" layoutX="49.0" layoutY="184.0" mnemonicParsing="false" text="Messages" />
-      <Button fx:id="help" layoutX="398.0" layoutY="16.0" mnemonicParsing="false" text="Help" />
+      <ListView fx:id="subjects" layoutX="177.0" layoutY="29.0" prefHeight="489.0" prefWidth="251.0" />
+      <Button fx:id="logout" layoutX="518.0" layoutY="492.0" mnemonicParsing="false" text="Logout" />
+      <Button fx:id="showinfo" layoutX="15.0" layoutY="359.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Student Info" />
+      <Button fx:id="updateinfo" layoutX="15.0" layoutY="410.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Update Student Info" />
+      <Button fx:id="changepassword" layoutX="15.0" layoutY="118.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Change password" />
+      <Button fx:id="messages" layoutX="509.0" layoutY="190.0" mnemonicParsing="false" text="Messages" />
+      <Button fx:id="help" layoutX="572.0" layoutY="36.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
    </children>
 </AnchorPane>

@@ -32,6 +32,8 @@ public class AddStudentToSubject implements Initializable {
 
     @FXML
     private Button help;
+    @FXML
+    private Button back;
 
     private Student student;
 
@@ -88,6 +90,24 @@ public class AddStudentToSubject implements Initializable {
                 e.printStackTrace();
             }
 
+        });
+        back.setOnAction(event -> {
+            Stage st =  (Stage) back.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
+            Region root;
+
+            try {
+                root =loader.load();
+
+                Scene scene = new Scene(root);
+                st.setScene(scene);
+
+                IndexAdmin indexController = loader.getController();
+
+                st.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
 
 

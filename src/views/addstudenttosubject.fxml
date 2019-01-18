@@ -4,11 +4,12 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="650.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.AddStudentToSubject">
+<AnchorPane prefHeight="650.0" prefWidth="657.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.AddStudentToSubject">
    <children>
-      <Button fx:id="add" layoutX="226.0" layoutY="538.0" mnemonicParsing="false" text="Add" />
-      <ListView fx:id="listsubjects" layoutX="26.0" layoutY="14.0" prefHeight="504.0" prefWidth="200.0" />
-      <ListView fx:id="liststudents" layoutX="281.0" layoutY="14.0" prefHeight="504.0" prefWidth="200.0" />
-      <Button fx:id="help" layoutX="504.0" layoutY="14.0" mnemonicParsing="false" text="Help" />
+      <Button fx:id="add" layoutX="295.0" layoutY="540.0" mnemonicParsing="false" text="Add" />
+      <ListView fx:id="listsubjects" layoutX="26.0" layoutY="14.0" prefHeight="504.0" prefWidth="269.0" />
+      <ListView fx:id="liststudents" layoutX="330.0" layoutY="14.0" prefHeight="504.0" prefWidth="226.0" />
+      <Button fx:id="help" layoutX="603.0" layoutY="22.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
+      <Button fx:id="back" layoutX="568.0" layoutY="553.0" mnemonicParsing="false" text="Back" />
    </children>
 </AnchorPane>

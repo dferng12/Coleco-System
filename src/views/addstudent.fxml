@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.AddStudent">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.AddStudent">
    <children>
       <TextField fx:id="name" layoutX="95.0" layoutY="104.0" />
       <TextField fx:id="dni" layoutX="95.0" layoutY="62.0" />
@@ -20,6 +20,6 @@
       <Label layoutX="15.0" layoutY="192.0" text="Username" />
       <Label layoutX="17.0" layoutY="234.0" text="Password" />
       <Label layoutX="249.0" layoutY="27.0" text="Add student" />
-      <Button fx:id="help" layoutX="532.0" layoutY="22.0" mnemonicParsing="false" text="Help" />
+      <Button fx:id="help" layoutX="531.0" layoutY="22.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
    </children>
 </AnchorPane>

@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import logicControllers.DAOS.DAOAuth;
 import logicControllers.DAOS.DAOSubject;
@@ -24,8 +25,7 @@ import logicControllers.Subjects;
 import logicControllers.Teachers;
 import logicControllers.Users;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -71,6 +71,9 @@ public class IndexAdmin implements Initializable{
 
     @FXML
     private Button backup;
+
+    @FXML
+    private Button getbackup;
 
     private User admin;
 
@@ -294,27 +297,60 @@ public class IndexAdmin implements Initializable{
 
                 String savePath = "";
                 DirectoryChooser directoryChooser = new DirectoryChooser();
-                File selectedDirectory = directoryChooser.showDialog(addstudent.getScene().getWindow());
+                File selectedDirectory = directoryChooser.showDialog(backup.getScene().getWindow());
                 if(selectedDirectory!=null) {
-                    savePath = selectedDirectory.getAbsolutePath() + "\backup.sql";
-
-                    /*NOTE: Used to create a cmd command*/
-                    String executeCmd = "mysqldump --user " + dbUser + " --password=" + dbPass + " " + dbName + " > " + savePath;
-
-                    /*NOTE: Executing the command here*/
+                    savePath = selectedDirectory.getAbsolutePath() + "/backup.sql";
+                    FileWriter fw = new FileWriter(new File(savePath));
+                    String executeCmd = "mysqldump -u " + dbUser + " -p" + dbPass + " " + dbName;
                     Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
-                    int processComplete = runtimeProcess.waitFor();
+                    InputStream os = runtimeProcess.getInputStream();
+                    FileOutputStream archivo = new FileOutputStream(savePath);
+                    byte[] buffer = new byte[1000];
 
-                    /*NOTE: processComplete=0 if correctly executed, will contain other values if not*/
-                    if (processComplete == 0) {
-                        System.out.println("Backup Complete");
-                    } else {
-                        System.out.println("Backup Failure");
+                    int bit = os.read(buffer);
+                    while (bit > 0) {
+                        archivo.write(buffer, 0, bit);
+                        bit = os.read(buffer);
                     }
+                    archivo.flush();
+                    archivo.close();
+                    os.close();
                 }
 
-            } catch (IOException | InterruptedException ex) {
-                ex.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        getbackup.setOnAction(event -> {
+            try {
+
+                String dbName = "ColecoSystem";
+                String dbUser = "colecouser";
+                String dbPass = "colecopass";
+
+                String savePath = "";
+                FileChooser fileChooser= new FileChooser();
+                File file = fileChooser.showOpenDialog(getbackup.getScene().getWindow());
+                if(file!=null) {
+                    savePath = file.getAbsolutePath();
+                    String executeCmd = "mysql -u " + dbUser + " -p" + dbPass + " " + dbName;
+                    Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
+                    OutputStream os = runtimeProcess.getOutputStream();
+                    FileInputStream archivo = new FileInputStream(savePath);
+                    byte[] buffer = new byte[1000];
+
+                    int bit = archivo.read(buffer);
+                    while (bit > 0) {
+                        os.write(buffer, 0, bit);
+                        bit = archivo.read(buffer);
+                    }
+                    os.flush();
+                    os.close();
+                    archivo.close();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
 
