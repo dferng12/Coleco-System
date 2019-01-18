@@ -17,7 +17,7 @@ public class Main extends Application {
         logger.warn("COLECO SYSTEM STARTED");
 
         DAO dao = new DAO();
-     //   dao.createDB();
+        //dao.createDB();
         DAOAuth daoAuth = new DAOAuth();
         daoAuth.createAdmin();
 

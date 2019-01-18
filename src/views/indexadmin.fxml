@@ -18,7 +18,8 @@
       <Button fx:id="removeuser" layoutX="515.0" layoutY="227.0" mnemonicParsing="false" text="Remove User" />
       <Button fx:id="backup" layoutX="520.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Create Backup" />
       <Button fx:id="removesubject" layoutX="630.0" layoutY="227.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="131.0" text="Remove Subject" />
-      <Button fx:id="removestudentsubject" layoutX="520.0" layoutY="289.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="240.0" text="Remove Student from Subject" />
-      <Button fx:id="getbackup" layoutX="649.0" layoutY="360.0" mnemonicParsing="false" text="Carge Backup" />
+      <Button fx:id="removestudentsubject" layoutX="514.0" layoutY="278.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="240.0" text="Remove Student from Subject" />
+      <Button fx:id="getbackup" layoutX="649.0" layoutY="360.0" mnemonicParsing="false" text="Load Backup" />
+      <Button fx:id="removeteachersubject" layoutX="514.0" layoutY="316.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="240.0" text="Remove Teacher from Subject" />
    </children>
 </AnchorPane>

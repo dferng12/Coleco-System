@@ -2,6 +2,7 @@ package viewControllers;
 
 import entities.Student;
 import entities.Subject;
+import entities.Teacher;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,12 +20,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
-
-public class RemoveStudentFromSubject implements Initializable {
+public class RemoveTeacherFromSubject implements Initializable {
 
     @FXML
-    ListView<Student> studentssubject = new ListView<Student>();
+    ListView<Teacher> teacherssubject = new ListView<Teacher>();
 
     @FXML
     private Button remove;
@@ -35,28 +34,28 @@ public class RemoveStudentFromSubject implements Initializable {
     @FXML
     private Button help;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        ObservableList<Student> list = FXCollections.observableArrayList();
+        ObservableList<Teacher> list = FXCollections.observableArrayList();
         Subject selectedSubject = IndexAdmin.getSelectedSubject();
-        list.addAll(selectedSubject.getStudents());
-        studentssubject.setItems(list);
+        if(selectedSubject.getTeacher() != null){
+            list.addAll(selectedSubject.getTeacher());
+            teacherssubject.setItems(list);
+        }
         if(list.size() == 0){
             Alert dialog = new Alert(Alert.AlertType.INFORMATION);
-            dialog.setTitle("Subject without students.");
-            dialog.setContentText("The subject "+selectedSubject.getName()+" does not have any students.");
+            dialog.setTitle("Subject without teachers.");
+            dialog.setContentText("The subject "+selectedSubject.getName()+" does not have any teachers.");
             dialog.setHeaderText(null);
             dialog.showAndWait();
         }
 
         remove.setOnAction(event -> {
-            Student stud = studentssubject.getSelectionModel().getSelectedItem();
+            Teacher teacher = teacherssubject.getSelectionModel().getSelectedItem();
             DAOSubject dao = new DAOSubject();
-            if(stud != null){
-                dao.removeStudentFromSubject(stud, selectedSubject);
-                studentssubject.getItems().remove(stud);
+            if(teacher!=null){
+                dao.removeTeacher(selectedSubject);
+                teacherssubject.getItems().remove(teacher);
             }
         });
 
@@ -86,7 +85,7 @@ public class RemoveStudentFromSubject implements Initializable {
                 Stage stage = new Stage();
                 stage.setTitle("Help");
                 stage.setScene(scene);
-                help.setPage("removestudentfromsubject");
+                help.setPage("removeteacherfromsubject");
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -94,4 +93,6 @@ public class RemoveStudentFromSubject implements Initializable {
 
         });
     }
+
+
 }

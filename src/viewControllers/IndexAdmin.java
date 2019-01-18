@@ -70,6 +70,9 @@ public class IndexAdmin implements Initializable{
     private Button removestudentsubject;
 
     @FXML
+    private Button removeteachersubject;
+
+    @FXML
     private Button backup;
 
     @FXML
@@ -285,6 +288,32 @@ public class IndexAdmin implements Initializable{
                     e.printStackTrace();
                 }
 
+            }
+        });
+
+        removeteachersubject.setOnAction(event -> {
+            if(listsubjects.getSelectionModel().getSelectedItem() == null){
+                Alert dialog = new Alert(Alert.AlertType.ERROR);
+                dialog.setTitle("Subject not selected");
+                dialog.setContentText("Select a subject first to remove its teacher from it.");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
+            }else{
+                selectedSubject = listsubjects.getSelectionModel().getSelectedItem();
+                Stage st =  (Stage) removestudentsubject.getScene().getWindow();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/removeteacherfromsubject.fxml"));
+                Region root;
+
+                try {
+                    root =loader.load();
+
+                    Scene scene = new Scene(root);
+                    st.setScene(scene);
+
+                    st.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
