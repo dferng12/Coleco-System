@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="517.0" prefWidth="711.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.Auth">
+<AnchorPane prefHeight="517.0" prefWidth="711.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Auth">
    <children>
       <Button fx:id="sendAuthInfo" layoutX="273.0" layoutY="379.0" mnemonicParsing="false" text="Login" />
       <TextField fx:id="username" layoutX="215.0" layoutY="259.0" promptText="Username" />
-      <TextField fx:id="password" layoutX="215.0" layoutY="318.0" promptText="Password" />
+      <PasswordField fx:id="password" layoutX="215.0" layoutY="314.0" promptText="Password" />
       <Button fx:id="help" layoutX="481.0" layoutY="68.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="45.0" pickOnBounds="true">
          <image>

@@ -3,8 +3,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import logicControllers.DAOS.DAO;
-import logicControllers.DAOS.DAOAuth;
+import Controller.DAOS.DAO;
+import Controller.DAOS.DAOAuth;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 //count: student pass: pass
@@ -17,7 +17,7 @@ public class Main extends Application {
         logger.warn("COLECO SYSTEM STARTED");
 
         DAO dao = new DAO();
-        //dao.createDB();
+        // dao.createDB();
         DAOAuth daoAuth = new DAOAuth();
         daoAuth.createAdmin();
 

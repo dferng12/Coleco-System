@@ -4,7 +4,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="656.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.IndexTeacher">
+<AnchorPane prefHeight="400.0" prefWidth="656.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.IndexTeacher">
    <children>
       <Button fx:id="showinfo" layoutX="460.0" layoutY="108.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Show info" />
       <Button fx:id="updateinfo" layoutX="460.0" layoutY="144.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Update info" />

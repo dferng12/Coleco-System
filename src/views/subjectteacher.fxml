@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="569.0" prefWidth="605.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.SubjectTeacher">
+<AnchorPane prefHeight="569.0" prefWidth="605.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SubjectTeacher">
    <children>
       <Button fx:id="addgrade" layoutX="382.0" layoutY="199.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="145.0" text="Add Grade" />
       <Button fx:id="addabsence" layoutX="383.0" layoutY="399.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="145.0" text="Add Absence" />
@@ -19,9 +19,9 @@
       <TextField fx:id="reason" layoutX="368.0" layoutY="259.0" promptText="Reason" />
       <TextField fx:id="penalty" layoutX="368.0" layoutY="306.0" promptText="Penalty" />
       <DatePicker fx:id="date" layoutX="365.0" layoutY="350.0" />
-      <Button fx:id="showinfo" layoutX="383.0" layoutY="476.0" mnemonicParsing="false" text="Show Info" />
+      <Button fx:id="showinfo" layoutX="387.0" layoutY="438.0" mnemonicParsing="false" text="Show Student Info" />
       <Button fx:id="finalgrade" layoutX="374.0" layoutY="43.0" mnemonicParsing="false" text="Calculate Final Grade" />
-      <Label fx:id="finalgradevalue" layoutX="435.0" layoutY="77.0" text="Label" textFill="RED" />
+      <Label fx:id="finalgradevalue" layoutX="435.0" layoutY="77.0" textFill="RED" />
       <Button fx:id="help" layoutX="627.0" layoutY="14.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
    </children>
 </AnchorPane>

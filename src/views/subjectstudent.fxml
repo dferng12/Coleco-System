@@ -5,7 +5,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="692.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.SubjectStudent">
+<AnchorPane prefHeight="400.0" prefWidth="692.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SubjectStudent">
    <children>
       <ListView fx:id="grades" layoutX="26.0" layoutY="68.0" prefHeight="233.0" prefWidth="243.0" />
       <ListView fx:id="absences" layoutX="322.0" layoutY="68.0" prefHeight="233.0" prefWidth="255.0" />

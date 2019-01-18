@@ -4,7 +4,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="593.0" prefWidth="671.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewControllers.AddTeacherToSubject">
+<AnchorPane prefHeight="593.0" prefWidth="671.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AddTeacherToSubject">
    <children>
       <Button fx:id="add" layoutX="286.0" layoutY="531.0" mnemonicParsing="false" text="Add" />
       <ListView fx:id="listsubjects" layoutX="26.0" layoutY="14.0" prefHeight="504.0" prefWidth="260.0" />
