@@ -92,6 +92,23 @@ public class IndexStudent implements Initializable {
                 e.printStackTrace();
             }
         });
+        showinfo.setOnAction(event -> {
+            Stage st =  (Stage) logout.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/studentInfo.fxml"));
+            Region root;
+            StudentInfo studentInfo = new StudentInfo();
+            loader.setController(studentInfo);
+            try {
+                root =loader.load();
+
+                Scene scene = new Scene(root);
+                st.setScene(scene);
+                studentInfo.setData(student);
+                st.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         help.setOnAction(actionEvent -> {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();

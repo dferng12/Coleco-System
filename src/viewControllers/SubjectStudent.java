@@ -90,24 +90,7 @@ public class SubjectStudent implements Initializable {
             }
 
         });
-        back.setOnAction(event -> {
-            Stage st =  (Stage) back.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexstudent.fxml"));
-            Region root;
 
-            try {
-                root =loader.load();
-
-                Scene scene = new Scene(root);
-                st.setScene(scene);
-
-                IndexAdmin indexController = loader.getController();
-
-                st.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
 
     }
 }

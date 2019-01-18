@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="827.0" style="-fx-background-color: CADETBLUE;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+      <Label layoutX="57.0" layoutY="76.0" text="Name" />
+      <Label layoutX="36.0" layoutY="115.0" prefHeight="0.0" prefWidth="65.0" text="Subname" />
+      <Label layoutX="68.0" layoutY="157.0" prefHeight="9.0" prefWidth="39.0" text="DNI" />
+      <TextField fx:id="name" layoutX="127.0" layoutY="71.0" />
+      <TextField fx:id="subname" layoutX="127.0" layoutY="110.0" />
+      <TextField fx:id="dni" layoutX="127.0" layoutY="152.0" />
+      <Label layoutX="24.0" layoutY="195.0" prefHeight="16.0" prefWidth="84.0" text="User name" />
+      <TextField fx:id="userName" layoutX="127.0" layoutY="190.0" />
+      <ListView fx:id="subjects" layoutX="456.0" layoutY="42.0" prefHeight="188.0" prefWidth="260.0" />
+      <Label layoutX="370.0" layoutY="52.0" text="Subjects" />
+      <Label layoutX="351.0" layoutY="295.0" text="Final Grade" />
+      <TextField fx:id="grade" layoutX="456.0" layoutY="290.0" prefHeight="26.0" prefWidth="39.0" />
+        <Button fx:id="help" layoutX="771.0" layoutY="29.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
+      <Button fx:id="back" layoutX="727.0" layoutY="330.0" mnemonicParsing="false" text="Back" />
+    </children>
+</AnchorPane>

@@ -24,6 +24,8 @@ public class Help {
         index.add("removestudentfromsubject");
         index.add("subjectstudent");
         index.add("subjectteacher");
+        index.add("removeteacherfromsubject");
+        index.add("studentinfo");
 
     }
 
@@ -92,6 +94,14 @@ public class Help {
         }else if(page.equals("removestudentfromsubject")){
              return "Ventana de borrado de alumno de asignatura.\n" +
                 "El administrador puede expulsar a un alumno de la asignatura elegida";
+
+        }else if(page.equals("removeteacherfromsubject")){
+            return "Ventana de borrado del profesor de una asignatura.\n" +
+                    "El administrador puede expulsar a un profesor de su asignatura.";
+
+        }else if(page.equals("studentinfo")){
+            return "Ventana de información del alumno\n" +
+                    "En esta ventana se muestra toda la información referida al alumno, donde puede consultar sus notas finales";
         }else
             return "error de página";
     }
