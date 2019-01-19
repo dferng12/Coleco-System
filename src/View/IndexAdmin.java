@@ -349,7 +349,7 @@ public class IndexAdmin implements Initializable{
                 dialog.setHeaderText(null);
                 dialog.showAndWait();
 
-                Stage st =  (Stage) logout.getScene().getWindow();
+                Stage st =  new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/auth.fxml"));
                 Region root;
 
@@ -357,10 +357,11 @@ public class IndexAdmin implements Initializable{
                     root =loader.load();
 
                     Scene scene = new Scene(root);
+                    st.setTitle("Coleco System");
                     st.setScene(scene);
 
                     Auth auth = loader.getController();
-
+                    ((Stage) logout.getScene().getWindow()).close();
                     st.show();
                 } catch (IOException e) {
                     e.printStackTrace();
