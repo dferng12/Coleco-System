@@ -25,6 +25,8 @@ public class Auth implements Initializable{
     @FXML
     private PasswordField password;
 
+    private static User selectedUser;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         AuthController authController = new AuthController();
@@ -39,9 +41,10 @@ public class Auth implements Initializable{
                     loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
                 }else if(user instanceof Teacher){
                     loader = new FXMLLoader(getClass().getResource("../views/indexteacher.fxml"));
+                    selectedUser = user;
                 }else if (user instanceof Student){
                     loader = new FXMLLoader(getClass().getResource("../views/indexstudent.fxml"));
-
+                    selectedUser = user;
                 }
 
                 Region root;
@@ -94,5 +97,9 @@ public class Auth implements Initializable{
             }
 
         });
+    }
+
+    public static User getSelectedUser(){
+        return selectedUser;
     }
 }

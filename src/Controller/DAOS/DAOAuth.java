@@ -34,6 +34,11 @@ public class DAOAuth extends DAO {
         return "";
     }
 
+    public void updateAuthInfo(AuthInfo authInfo){
+        String query = "UPDATE userauth SET password = '"+AuthController.hash(authInfo.getPasswd())+"' WHERE username = '"+authInfo.getUser()+"';";
+        executeUpdate(query);
+    }
+
     public void addAuthInfo(AuthInfo authInfo) {
         String query = "INSERT INTO userauth(username,password) VALUES (\"" + authInfo.getUser() + "\", \"" + AuthController.hash(authInfo.getPasswd()) + "\");";
 

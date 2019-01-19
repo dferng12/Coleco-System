@@ -37,6 +37,9 @@ public class IndexTeacher implements Initializable {
     @FXML
     private Button messages;
 
+    @FXML
+    private Button changepassword;
+
     private Teacher teacher;
 
     public Teacher getTeacher() {
@@ -72,6 +75,24 @@ public class IndexTeacher implements Initializable {
                 e.printStackTrace();
             }
         });
+
+        changepassword.setOnAction(event -> {
+            Stage st =  (Stage) changepassword.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/changepassword.fxml"));
+            Region root;
+
+            try {
+                root =loader.load();
+
+                Scene scene = new Scene(root);
+                st.setScene(scene);
+
+                st.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
         help.setOnAction(actionEvent -> {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
