@@ -10,12 +10,8 @@ import org.apache.log4j.PropertyConfigurator;
 //count: student pass: pass
 public class Main extends Application {
 
-    private static Logger logger = Logger.getLogger(Main.class);
     @Override
     public void start(Stage primaryStage) throws Exception{
-        PropertyConfigurator.configure(System.getProperty("user.dir") + "/src/resources/log4j.properties");
-        logger.warn("COLECO SYSTEM STARTED");
-
         DAO dao = new DAO();
         // dao.createDB();
         DAOAuth daoAuth = new DAOAuth();

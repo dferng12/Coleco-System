@@ -52,7 +52,7 @@ public class Messages implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         messages.getSelectionModel().selectedItemProperty().addListener((observable, oldClickedSubject, clickedMessage) -> {
             Stage st =  new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/message.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/message.fxml"));
             Region root;
 
             try {
@@ -72,7 +72,7 @@ public class Messages implements Initializable {
 
         });
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {
@@ -91,7 +91,7 @@ public class Messages implements Initializable {
 
         newMessage.setOnAction(event -> {
             Stage st =  (Stage) newMessage.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/messageView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/messageView.fxml"));
             Region root;
 
             try {

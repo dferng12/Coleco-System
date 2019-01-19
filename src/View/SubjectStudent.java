@@ -73,7 +73,7 @@ public class SubjectStudent implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {

@@ -12,10 +12,10 @@
       <Button fx:id="sendAuthInfo" layoutX="273.0" layoutY="379.0" mnemonicParsing="false" text="Login" />
       <TextField fx:id="username" layoutX="215.0" layoutY="259.0" promptText="Username" />
       <PasswordField fx:id="password" layoutX="215.0" layoutY="314.0" promptText="Password" />
-      <Button fx:id="help" layoutX="481.0" layoutY="68.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
+      <Button fx:id="help" layoutX="481.0" layoutY="68.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('resources/help.png'); -fx-background-color: transparent;" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="45.0" pickOnBounds="true">
          <image>
-            <Image url="@../coleco.jpeg" />
+            <Image url="resources/coleco.jpeg" />
          </image>
       </ImageView>
    </children>

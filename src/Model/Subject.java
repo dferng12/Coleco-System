@@ -69,8 +69,6 @@ public class Subject {
         int totalGrade = 0;
         String dni1 = student.getDni().toString().substring(0,8);
         int dni =  Integer.parseInt(dni1);
-        System.out.print(dni1);
-        System.out.print(this.grades.toString());
 
         if(this.grades.get(dni) != null){
             for(Grade grade: this.grades.get(dni)){

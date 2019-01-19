@@ -60,7 +60,7 @@ public class IndexStudent implements Initializable {
 
         subjects.getSelectionModel().selectedItemProperty().addListener((observable, oldClickedSubject, clickedSubject) -> {
             Stage st =  new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/subjectstudent.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/subjectstudent.fxml"));
             Region root;
 
             try {
@@ -78,7 +78,7 @@ public class IndexStudent implements Initializable {
             }
         });
         messages.setOnAction(actionEvent -> {
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/messages.fxml"));
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/messages.fxml"));
             Messages messages = new Messages();
            loader.setController(messages);
             try {
@@ -97,7 +97,7 @@ public class IndexStudent implements Initializable {
 
         showinfo.setOnAction(event -> {
             Stage st =  (Stage) logout.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/studentInfo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/studentInfo.fxml"));
             Region root;
             StudentInfo studentInfo = new StudentInfo();
             loader.setController(studentInfo);
@@ -115,7 +115,7 @@ public class IndexStudent implements Initializable {
 
         changepassword.setOnAction(event -> {
             Stage st =  (Stage) changepassword.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/changepassword.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/changepassword.fxml"));
             Region root;
 
             try {
@@ -131,7 +131,7 @@ public class IndexStudent implements Initializable {
         });
 
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {
@@ -150,7 +150,7 @@ public class IndexStudent implements Initializable {
 
         logout.setOnAction(event -> {
             Stage st =  (Stage) logout.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/auth.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/auth.fxml"));
             Region root;
 
             try {

@@ -59,7 +59,7 @@ public class AddStudentToSubject implements Initializable {
             subjects.addStudentToSubject(this.subject, this.student);
             student.getSubjects();
             Stage st =  (Stage) add.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexadmin.fxml"));
             Region root;
 
             try {
@@ -75,7 +75,7 @@ public class AddStudentToSubject implements Initializable {
         });
 
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {
@@ -93,7 +93,7 @@ public class AddStudentToSubject implements Initializable {
         });
         back.setOnAction(event -> {
             Stage st =  (Stage) back.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexadmin.fxml"));
             Region root;
 
             try {

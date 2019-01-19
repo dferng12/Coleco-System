@@ -10,6 +10,6 @@
       <TextField fx:id="subjectname" layoutX="194.0" layoutY="50.0" />
       <Label layoutX="67.0" layoutY="55.0" text="Subject Name" />
       <Button fx:id="create" layoutX="415.0" layoutY="50.0" mnemonicParsing="false" text="Create" />
-      <Button fx:id="help" layoutX="541.0" layoutY="14.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
+      <Button fx:id="help" layoutX="541.0" layoutY="14.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('resources/help.png'); -fx-background-color: transparent;" />
    </children>
 </AnchorPane>

@@ -57,7 +57,7 @@ public class AddTeacherToSubject implements Initializable {
             subjects.addTeacherToSubject(this.teacher, this.subject);
 
             Stage st =  (Stage) add.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexadmin.fxml"));
             Region root;
 
             try {
@@ -72,7 +72,7 @@ public class AddTeacherToSubject implements Initializable {
             }
         });
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {

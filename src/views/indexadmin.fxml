@@ -14,7 +14,7 @@
       <Button fx:id="addstudenttosubject" layoutX="514.0" layoutY="92.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="246.0" text="Add Student to Subject" />
       <Button fx:id="addteacher" layoutX="514.0" layoutY="127.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="246.0" text="Add Teacher" />
       <Button fx:id="addteachertosubject" layoutX="514.0" layoutY="167.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="246.0" text="Add Teacher To Subject" />
-      <Button fx:id="help" layoutX="821.0" layoutY="26.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
+      <Button fx:id="help" layoutX="821.0" layoutY="26.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('resources/help.png'); -fx-background-color: transparent;" />
       <Button fx:id="removeuser" layoutX="515.0" layoutY="227.0" mnemonicParsing="false" text="Remove User" />
       <Button fx:id="backup" layoutX="520.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="114.0" text="Create Backup" />
       <Button fx:id="removesubject" layoutX="630.0" layoutY="227.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="131.0" text="Remove Subject" />

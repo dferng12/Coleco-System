@@ -5,6 +5,16 @@ public class DNI implements Handler{
     private char letter;
 
     public static DNI createDNI(String dni){
+        if(dni.length() != 9){
+            return null;
+        }
+
+        try{
+            Integer.parseInt(dni.substring(0,8));
+        }catch (NumberFormatException | NullPointerException e) {
+            return null;
+        }
+
         if (letterIsCorrect(Integer.parseInt(dni.substring(0,8)), dni.charAt(dni.length()-1))){
             return new DNI((dni.substring(0,8)), dni.charAt(dni.length()-1));
         }else{

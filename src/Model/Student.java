@@ -31,6 +31,6 @@ public class Student extends User{
 
     @Override
     public String toString() {
-        return this.name + " " + this.subname + " " + this.dni;
+        return "Estudiante: " + this.name + " " + this.subname;
     }
 }

@@ -61,7 +61,7 @@ public class StudentInfo implements Initializable {
         });
 
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {
@@ -79,7 +79,7 @@ public class StudentInfo implements Initializable {
         });
         back.setOnAction(event -> {
             Stage st =  (Stage) back.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexstudent.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexstudent.fxml"));
             Region root;
 
             try {

@@ -92,7 +92,7 @@ public class SubjectTeacher implements Initializable {
         showinfo.setOnAction(actionEvent -> {
             if(this.subject != null && this.selectedStudent != null){
                 Stage st = new Stage();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/subjectstudent.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/subjectstudent.fxml"));
                 Region root;
 
                 try {
@@ -136,7 +136,7 @@ public class SubjectTeacher implements Initializable {
 
         back.setOnAction(event -> {
             Stage st =  (Stage) back.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexteacher.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexteacher.fxml"));
             Region root;
 
             try {
@@ -155,7 +155,7 @@ public class SubjectTeacher implements Initializable {
         });
 
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {

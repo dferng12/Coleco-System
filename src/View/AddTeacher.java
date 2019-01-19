@@ -51,32 +51,40 @@ public class AddTeacher implements Initializable{
         create.setOnAction(event -> {
             Teachers teachers = new Teachers();
             Teacher teacher = new Teacher();
+            DNI d = DNI.createDNI(dni.getText());
+            if(d == null){
+                Alert dialog = new Alert(Alert.AlertType.ERROR);
+                dialog.setTitle("ERROR");
+                dialog.setContentText("DNI was wrong. Check it and try again.");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
+            }else{
+                teacher.setDni(d);
+                teacher.setName(name.getText());
+                teacher.setSubname(subname.getText());
+                AuthInfo authInfo = new AuthInfo(username.getText(), password.getText());
+                teacher.setAuthInfo(authInfo);
+                MailCenter mail = MailCenter.getInstance();
+                teachers.addTeacher(teacher);
 
-            teacher.setDni(DNI.createDNI(dni.getText()));
-            teacher.setName(name.getText());
-            teacher.setSubname(subname.getText());
-            AuthInfo authInfo = new AuthInfo(username.getText(), password.getText());
-            teacher.setAuthInfo(authInfo);
-            MailCenter mail = MailCenter.getInstance();
-            teachers.addTeacher(teacher);
-
-            Alert dialog = new Alert(Alert.AlertType.INFORMATION);
-            dialog.setTitle("Teacher created");
-            dialog.setContentText("The teacher "+name.getText()+" with DNI: "+dni.getText()+" has been successfully created.");
-            dialog.setHeaderText(null);
-            dialog.showAndWait();
-            username.setText("");
-            password.setText("");
-            dni.setText("");
-            name.setText("");
-            subname.setText("");
-            username.setText("");
-            password.setText("");
+                Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+                dialog.setTitle("Teacher created");
+                dialog.setContentText("The teacher "+name.getText()+" with DNI: "+dni.getText()+" has been successfully created.");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
+                username.setText("");
+                password.setText("");
+                dni.setText("");
+                name.setText("");
+                subname.setText("");
+                username.setText("");
+                password.setText("");
+            }
         });
 
         back.setOnAction(event -> {
             Stage st =  (Stage) back.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexadmin.fxml"));
             Region root;
 
             try {
@@ -93,7 +101,7 @@ public class AddTeacher implements Initializable{
             }
         });
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {

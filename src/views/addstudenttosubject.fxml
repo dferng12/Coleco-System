@@ -9,7 +9,7 @@
       <Button fx:id="add" layoutX="295.0" layoutY="540.0" mnemonicParsing="false" text="Add" />
       <ListView fx:id="listsubjects" layoutX="26.0" layoutY="14.0" prefHeight="504.0" prefWidth="269.0" />
       <ListView fx:id="liststudents" layoutX="330.0" layoutY="14.0" prefHeight="504.0" prefWidth="226.0" />
-      <Button fx:id="help" layoutX="603.0" layoutY="22.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
+      <Button fx:id="help" layoutX="603.0" layoutY="22.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('resources/help.png'); -fx-background-color: transparent;" />
       <Button fx:id="back" layoutX="568.0" layoutY="553.0" mnemonicParsing="false" text="Back" />
    </children>
 </AnchorPane>

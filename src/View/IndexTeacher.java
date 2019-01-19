@@ -58,7 +58,7 @@ public class IndexTeacher implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         subjects.getSelectionModel().selectedItemProperty().addListener((observable, oldClickedSubject, clickedSubject) -> {
             Stage st =  (Stage) logout.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/subjectteacher.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/subjectteacher.fxml"));
             Region root;
 
             try {
@@ -78,7 +78,7 @@ public class IndexTeacher implements Initializable {
 
         changepassword.setOnAction(event -> {
             Stage st =  (Stage) changepassword.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/changepassword.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/changepassword.fxml"));
             Region root;
 
             try {
@@ -94,7 +94,7 @@ public class IndexTeacher implements Initializable {
         });
 
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {
@@ -113,7 +113,7 @@ public class IndexTeacher implements Initializable {
 
         logout.setOnAction(event -> {
             Stage st =  (Stage) logout.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/auth.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/auth.fxml"));
             Region root;
 
             try {
@@ -130,7 +130,7 @@ public class IndexTeacher implements Initializable {
             }
         });
         messages.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/messages.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/messages.fxml"));
             Messages messages = new Messages();
             loader.setController(messages);
             try {

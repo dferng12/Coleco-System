@@ -11,7 +11,7 @@
       <Button fx:id="logout" layoutX="535.0" layoutY="337.0" mnemonicParsing="false" text="Logout" />
       <ListView fx:id="subjects" layoutX="50.0" layoutY="37.0" prefHeight="332.0" prefWidth="309.0" />
       <Button fx:id="messages" layoutX="460.0" layoutY="187.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" text="Messages" />
-      <Button fx:id="help" layoutX="567.0" layoutY="24.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
+      <Button fx:id="help" layoutX="567.0" layoutY="24.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('resources/help.png'); -fx-background-color: transparent;" />
       <Button fx:id="changepassword" layoutX="452.0" layoutY="240.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Change Password" />
    </children>
 </AnchorPane>

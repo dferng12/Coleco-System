@@ -20,6 +20,6 @@ public class Teacher extends User{
 
     @Override
     public String toString() {
-        return this.name + " " + this.subname;
+        return "Teacher: " + this.name + " " + this.subname;
     }
 }

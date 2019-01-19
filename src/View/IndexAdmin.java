@@ -101,7 +101,7 @@ public class IndexAdmin implements Initializable{
 
         addstudent.setOnAction(event -> {
             Stage st =  (Stage) addstudent.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/addstudent.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/addstudent.fxml"));
             Region root;
 
             try {
@@ -118,7 +118,7 @@ public class IndexAdmin implements Initializable{
 
         addsubject.setOnAction(event -> {
             Stage st =  (Stage) addstudent.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/addsubject.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/addsubject.fxml"));
             Region root;
 
             try {
@@ -137,7 +137,7 @@ public class IndexAdmin implements Initializable{
 
         addstudenttosubject.setOnAction(actionEvent -> {
             Stage st =  (Stage) addstudenttosubject.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/addstudenttosubject.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/addstudenttosubject.fxml"));
             Region root;
 
             try {
@@ -155,7 +155,7 @@ public class IndexAdmin implements Initializable{
         });
 
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {
@@ -174,7 +174,7 @@ public class IndexAdmin implements Initializable{
 
         addteacher.setOnAction(actionEvent -> {
             Stage st =  (Stage) addstudent.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/addteacher.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/addteacher.fxml"));
             Region root;
 
             try {
@@ -191,7 +191,7 @@ public class IndexAdmin implements Initializable{
 
         addteachertosubject.setOnAction(actionEvent -> {
             Stage st =  (Stage) addstudent.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/addteachertosubject.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/addteachertosubject.fxml"));
             Region root;
 
             try {
@@ -210,7 +210,7 @@ public class IndexAdmin implements Initializable{
 
         logout.setOnAction(event -> {
             Stage st =  (Stage) logout.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/auth.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/auth.fxml"));
             Region root;
 
             try {
@@ -275,7 +275,7 @@ public class IndexAdmin implements Initializable{
             }else{
                 selectedSubject = listsubjects.getSelectionModel().getSelectedItem();
                 Stage st =  (Stage) removestudentsubject.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/removestudentfromsubject.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/removestudentfromsubject.fxml"));
                 Region root;
 
                 try {
@@ -302,7 +302,7 @@ public class IndexAdmin implements Initializable{
             }else{
                 selectedSubject = listsubjects.getSelectionModel().getSelectedItem();
                 Stage st =  (Stage) removestudentsubject.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/removeteacherfromsubject.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/removeteacherfromsubject.fxml"));
                 Region root;
 
                 try {

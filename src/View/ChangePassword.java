@@ -88,7 +88,7 @@ public class ChangePassword implements Initializable {
         back.setOnAction(event -> {
             if(Auth.getSelectedUser() instanceof Student){
                 Stage st =  (Stage) changepassword.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexstudent.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexstudent.fxml"));
                 Region root;
 
                 try {
@@ -103,7 +103,7 @@ public class ChangePassword implements Initializable {
                 }
             }else if(Auth.getSelectedUser() instanceof Teacher){
                 Stage st =  (Stage) changepassword.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexteacher.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexteacher.fxml"));
                 Region root;
 
                 try {

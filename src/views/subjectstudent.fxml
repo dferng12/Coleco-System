@@ -12,6 +12,6 @@
       <Label fx:id="name" layoutX="269.0" layoutY="28.0" text="Nombre" />
       <Label layoutX="122.0" layoutY="36.0" text="Grades" />
       <Label layoutX="424.0" layoutY="36.0" text="Absences" />
-       <Button fx:id="help" layoutX="629.0" layoutY="31.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('help.png'); -fx-background-color: transparent;" />
+       <Button fx:id="help" layoutX="629.0" layoutY="31.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('resources/help.png'); -fx-background-color: transparent;" />
    </children>
 </AnchorPane>

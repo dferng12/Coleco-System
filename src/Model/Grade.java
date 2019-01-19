@@ -36,6 +36,6 @@ public class Grade {
 
     @Override
     public String toString() {
-        return String.valueOf(value) + " :: " + String.valueOf(percentage) + "%";
+        return String.valueOf(value) + " -- " + String.valueOf(percentage) + "%";
     }
 }

@@ -49,30 +49,39 @@ public class AddStudent implements Initializable{
         create.setOnAction(event -> {
             Students students = new Students();
             Student student = new Student();
-            student.setDni(DNI.createDNI(dni.getText()));
-            student.setName(name.getText());
-            student.setSubname(subname.getText());
-            AuthInfo authInfo = new AuthInfo(username.getText(), password.getText());
-            student.setAuthInfo(authInfo);
-            students.addStudent(student);
+            DNI d = DNI.createDNI(dni.getText());
+            if(d == null){
+                Alert dialog = new Alert(Alert.AlertType.ERROR);
+                dialog.setTitle("ERROR");
+                dialog.setContentText("DNI was wrong. Check it and try again.");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
+            }else{
+                student.setDni(d);
+                student.setName(name.getText());
+                student.setSubname(subname.getText());
+                AuthInfo authInfo = new AuthInfo(username.getText(), password.getText());
+                student.setAuthInfo(authInfo);
+                students.addStudent(student);
 
-            Alert dialog = new Alert(Alert.AlertType.INFORMATION);
-            dialog.setTitle("Student created");
-            dialog.setContentText("The student "+name.getText()+" with DNI: "+dni.getText()+" has been successfully created.");
-            dialog.setHeaderText(null);
-            dialog.showAndWait();
-            username.setText("");
-            password.setText("");
-            dni.setText("");
-            name.setText("");
-            subname.setText("");
-            username.setText("");
-            password.setText("");
+                Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+                dialog.setTitle("Student created");
+                dialog.setContentText("The student "+name.getText()+" with DNI: "+dni.getText()+" has been successfully created.");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
+                username.setText("");
+                password.setText("");
+                dni.setText("");
+                name.setText("");
+                subname.setText("");
+                username.setText("");
+                password.setText("");
+            }
         });
 
         back.setOnAction(event -> {
             Stage st =  (Stage) back.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexadmin.fxml"));
             Region root;
 
             try {
@@ -90,7 +99,7 @@ public class AddStudent implements Initializable{
         });
 
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {

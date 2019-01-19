@@ -56,7 +56,7 @@ public class MessageView implements Initializable {
 
         back.setOnAction(event -> {
             Stage st =  (Stage) back.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/messages.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/messages.fxml"));
             Region root;
             Messages messages = new Messages();
             loader.setController(messages);
@@ -73,7 +73,7 @@ public class MessageView implements Initializable {
 
         });
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {

@@ -50,6 +50,6 @@ public class Absence{
 
     @Override
     public String toString() {
-        return date.toString() + "::" + reason + ":: -" + String.valueOf(penalty);
+        return date.toString() + " -- " + reason + " -- " + String.valueOf(penalty);
     }
 }

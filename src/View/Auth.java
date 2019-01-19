@@ -38,12 +38,12 @@ public class Auth implements Initializable{
                 FXMLLoader loader = null;
                 Stage st =  (Stage) sendAuthInfo.getScene().getWindow();
                 if(user instanceof Admin){
-                    loader = new FXMLLoader(getClass().getResource("../views/indexadmin.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("/views/indexadmin.fxml"));
                 }else if(user instanceof Teacher){
-                    loader = new FXMLLoader(getClass().getResource("../views/indexteacher.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("/views/indexteacher.fxml"));
                     selectedUser = user;
                 }else if (user instanceof Student){
-                    loader = new FXMLLoader(getClass().getResource("../views/indexstudent.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("/views/indexstudent.fxml"));
                     selectedUser = user;
                 }
 
@@ -81,7 +81,7 @@ public class Auth implements Initializable{
             }
         });
         help.setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/indexHelp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
             IndexHelp help = new IndexHelp();
             loader.setController(help);
             try {
