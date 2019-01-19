@@ -4,6 +4,7 @@ import Controller.DAOS.DAOAuth;
 import Model.AuthInfo;
 import Model.Student;
 import Model.Teacher;
+import Model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,6 +32,11 @@ public class ChangePassword implements Initializable {
     @FXML
     private Button back;
 
+    private User user;
+
+    public void setUser(User user){
+        this.user = user;
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -57,20 +63,11 @@ public class ChangePassword implements Initializable {
                     changepassword.setText("");
                     changepasswordrepeat.setText("");
                 }else{ //Si ambas passwords coinciden
-                    if(Auth.getSelectedUser() != null){
-                        if(Auth.getSelectedUser() instanceof Student){ //Si es un alumno.
-                            DAOAuth dao = new DAOAuth();
-                            Student selectedStudent = (Student) Auth.getSelectedUser();
-                            AuthInfo authInfo = new AuthInfo(selectedStudent.getAuthInfo().getUser(), changepassword.getText());
-                            selectedStudent.setAuthInfo(authInfo);
-                            dao.updateAuthInfo(authInfo);
-                        }else if(Auth.getSelectedUser() instanceof Teacher){ //Si es un profesor.
-                            DAOAuth dao = new DAOAuth();
-                            Teacher selectedTeacher = (Teacher) Auth.getSelectedUser();
-                            AuthInfo authInfo = new AuthInfo(selectedTeacher.getAuthInfo().getUser(), changepassword.getText());
-                            selectedTeacher.setAuthInfo(authInfo);
-                            dao.updateAuthInfo(authInfo);
-                        }
+                    if(this.user != null){
+                        AuthInfo newAuthInfo = new AuthInfo(this.user.getAuthInfo().getUser(), changepassword.getText());
+                        this.user.setAuthInfo(newAuthInfo);
+                        new DAOAuth().updateAuthInfo(newAuthInfo);
+
                         Alert dialog = new Alert(Alert.AlertType.INFORMATION);
                         dialog.setTitle("Password successfully changed.");
                         dialog.setContentText("The new password has been successfully changed.");
