@@ -27,8 +27,7 @@ public class DAOAuth extends DAO {
                 return result.getString("username");
             }
         } catch (SQLException e) {
-            logger.error("ERROR IN SQL QUERY");
-            logger.debug(e.getMessage());
+            return "";
         }
 
         return "";
@@ -50,7 +49,6 @@ public class DAOAuth extends DAO {
         String adminExists = "SELECT COUNT(*) AS total FROM userauth";
         String adminCreate= "INSERT INTO userauth VALUES('colecoadmin', '7b8956fc49b3c4e92f5761b2bb503a548640537d1abb7b7c1e2f7fdf7df40995');";
         String userCreate = "INSERT INTO admins(dni, name, subname, email, auth) VALUES ('71474345M', 'Coleco', 'System', 'coleco@coleco.com', 'colecoadmin');";
-        logger.debug("colecoadmin and passadmin new auxiliar admin keys");
         try {
             ResultSet result = execQuery(adminExists);
             result.next();
@@ -58,12 +56,9 @@ public class DAOAuth extends DAO {
             if (total == 0) {
                 executeUpdate(adminCreate);
                 executeUpdate(userCreate);
-            }else{
-                logger.debug("colecoadmin EXISTS YET");
             }
-        } catch (SQLException e) {
-            logger.error("ERROR IN SQL QUERY");
-            logger.debug(e.getMessage());
+        } catch (SQLException ignored) {
+
         }
     }
 

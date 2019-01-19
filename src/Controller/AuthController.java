@@ -1,14 +1,12 @@
 package Controller;
 
 import Controller.DAOS.DAOAuth;
-import org.apache.log4j.Logger;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class AuthController {
-    private static Logger logger = Logger.getLogger(AuthController.class);
 
     private DAOAuth dao;
 
@@ -37,10 +35,7 @@ public class AuthController {
             return encodeHex(hash);
 
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            logger.error("UNABLE TO HASH");
-            logger.error(e.getMessage());
+            return null;
         }
-
-        return null;
     }
 }

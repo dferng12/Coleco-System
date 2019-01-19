@@ -74,8 +74,7 @@ public class DAOUser extends DAO {
 
                 }
             } catch (SQLException e) {
-                logger.error("ERROR IN SQL QUERY");
-                logger.debug(e.getMessage());
+                return null;
             }
         }
 
@@ -92,8 +91,7 @@ public class DAOUser extends DAO {
 
                 }
             } catch (SQLException e) {
-                logger.error("ERROR IN SQL QUERY");
-                logger.debug(e.getMessage());
+                return null;
             }
         }
 
@@ -108,8 +106,7 @@ public class DAOUser extends DAO {
                     return user;
                 }
             } catch (SQLException e) {
-                logger.error("ERROR IN SQL QUERY");
-                logger.debug(e.getMessage());
+                return null;
             }
         }
 

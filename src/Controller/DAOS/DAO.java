@@ -1,7 +1,6 @@
 package Controller.DAOS;
 
 import Model.User;
-import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.sql.*;
@@ -9,11 +8,9 @@ import java.sql.*;
 public class DAO {
     protected Connection connection = null;
     protected boolean connectionStatus;
-    protected static Logger logger = Logger.getLogger(DAO.class);
 
     public DAO(){
         connectionStatus = connect();
-        if(!connectionStatus) logger.warn("ERROR CONNECTING");
     }
 
     public void createDB(){
@@ -87,24 +84,20 @@ public class DAO {
     }
     public ResultSet execQuery(String query){
         try {
-            logger.debug("EXECUTING QUERY: " +  query);
             Statement statement = connection.createStatement();
             return statement.executeQuery(query);
 
         } catch (SQLException e) {
-            logger.warn("SQL QUERY FAILED: " + e.getMessage());
             return null;
         }
     }
 
     public int executeUpdate(String query){
         try {
-            logger.debug("EXECUTING QUERY: " +  query);
             Statement statement = connection.createStatement();
             return statement.executeUpdate(query);
 
         } catch (SQLException e) {
-            logger.warn("SQL QUERY FAILED: " + e.getMessage());
             return -1;
         }
 
@@ -112,12 +105,10 @@ public class DAO {
 
     public int executeAdd(String query){
         try {
-            logger.debug("EXECUTING QUERY: " +  query);
             Statement statement = connection.createStatement();
             return statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
 
         } catch (SQLException e) {
-            logger.warn("SQL QUERY FAILED: " + e.getMessage());
             return -1;
         }
 
@@ -134,7 +125,6 @@ public class DAO {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ColecoSystem?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "colecouser", "colecopass");
             return connection.isValid(50000);
         }catch (ClassNotFoundException | SQLException e){
-            logger.warn("FAILED TO CONNECT TO DB: " + e.getMessage());
 
             return false;
         }

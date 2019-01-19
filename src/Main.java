@@ -5,8 +5,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import Controller.DAOS.DAO;
 import Controller.DAOS.DAOAuth;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 //count: student pass: pass
 public class Main extends Application {
 
