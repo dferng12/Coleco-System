@@ -70,7 +70,6 @@ public class MessageView implements Initializable {
                 e.printStackTrace();
             }
 
-
         });
         help.setOnAction(actionEvent -> {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
@@ -100,6 +99,20 @@ public class MessageView implements Initializable {
                 message.setReceiver(receiver);
                 message.setSender(from);
                 mail.sendMessage(message);
+                Stage st =  (Stage) back.getScene().getWindow();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/messages.fxml"));
+                Region root;
+                Messages messages = new Messages();
+                loader.setController(messages);
+                try {
+                    root =loader.load();
+                    Scene scene = new Scene(root);
+                    st.setScene(scene);
+                    messages.setUser(from);
+                    st.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

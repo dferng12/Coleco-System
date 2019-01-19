@@ -9,9 +9,8 @@
       <ListView fx:id="subjects" layoutX="177.0" layoutY="29.0" prefHeight="489.0" prefWidth="251.0" />
       <Button fx:id="logout" layoutX="518.0" layoutY="492.0" mnemonicParsing="false" text="Logout" />
       <Button fx:id="showinfo" layoutX="15.0" layoutY="359.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Student Info" />
-      <Button fx:id="updateinfo" layoutX="15.0" layoutY="410.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Update Student Info" />
       <Button fx:id="changepassword" layoutX="15.0" layoutY="118.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Change password" />
-      <Button fx:id="messages" layoutX="509.0" layoutY="190.0" mnemonicParsing="false" text="Messages" />
+      <Button fx:id="messages" layoutX="478.0" layoutY="118.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="112.0" text="Messages" />
       <Button fx:id="help" layoutX="572.0" layoutY="36.0" mnemonicParsing="false" prefHeight="0.0" style="-fx-graphic: url('resources/help.png'); -fx-background-color: transparent;" />
    </children>
 </AnchorPane>

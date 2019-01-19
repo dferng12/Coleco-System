@@ -51,7 +51,7 @@ public class Messages implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         messages.getSelectionModel().selectedItemProperty().addListener((observable, oldClickedSubject, clickedMessage) -> {
-            Stage st =  new Stage();
+            Stage st =  (Stage) messages.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/message.fxml"));
             Region root;
 

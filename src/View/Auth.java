@@ -76,7 +76,6 @@ public class Auth implements Initializable{
                 dialog.setContentText("Username or password introduced are not correct, please try again.");
                 dialog.setHeaderText(null);
                 dialog.showAndWait();
-                username.setText("");
                 password.setText("");
             }
         });

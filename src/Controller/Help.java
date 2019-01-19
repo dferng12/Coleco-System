@@ -18,12 +18,14 @@ public class Help {
         index.add("indexstudent");
         index.add("indexteacher");
         index.add("messages");
+        index.add("message");
         index.add("messageview");
         index.add("removestudentfromsubject");
         index.add("subjectstudent");
         index.add("subjectteacher");
         index.add("removeteacherfromsubject");
         index.add("studentinfo");
+        index.add("changepassword");
 
     }
 
@@ -79,7 +81,7 @@ public class Help {
 
         }else if(page.equals("messageview")){
             return "Ventana de mensaje. \n " +
-                    "En esta ventana un alumno puede leer un mensaje que ha recibido o un profesor puede redactar un mensaje y enviarselo a un alumno.";
+                    "El profesor puede redactar un mensaje y enviarselo a un alumno.";
 
         }else if(page.equals("subjectstudent")) {
             return "Ventana de asignaturas. \n" +
@@ -100,7 +102,14 @@ public class Help {
         }else if(page.equals("studentinfo")){
             return "Ventana de información del alumno\n" +
                     "En esta ventana se muestra toda la información referida al alumno, donde puede consultar sus notas finales";
+        }else if(page.equals("message")){
+            return "Ventana de mensaje\n" +
+                    "En esta ventana el alumno puede leer el mensaje recibido";
+        }else if(page.equals("changepassword")){
+            return "Ventana de cambio de contraseña.\n" +
+                    "En esta ventana el alumno o profesor puede cambiar su contraseña de acceso.";
+
         }else
             return "error de página";
-    }
+        }
 }

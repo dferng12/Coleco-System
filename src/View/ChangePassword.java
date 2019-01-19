@@ -32,6 +32,9 @@ public class ChangePassword implements Initializable {
     @FXML
     private Button back;
 
+    @FXML
+    private Button help;
+
     private User user;
 
     public void setUser(User user){
@@ -90,10 +93,11 @@ public class ChangePassword implements Initializable {
 
                 try {
                     root =loader.load();
-
+                    IndexStudent indexStudent = new IndexStudent();
+                    indexStudent.setStudent((Student) user);
                     Scene scene = new Scene(root);
                     st.setScene(scene);
-
+                    IndexStudent indexController = loader.getController();
                     st.show();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -102,17 +106,34 @@ public class ChangePassword implements Initializable {
                 Stage st =  (Stage) changepassword.getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexteacher.fxml"));
                 Region root;
-
                 try {
                     root =loader.load();
-
+                    IndexTeacher indexTeacher = loader.getController();
+                    indexTeacher.setTeacher((Teacher) user);
                     Scene scene = new Scene(root);
                     st.setScene(scene);
-
+                    IndexTeacher indexController = loader.getController();
                     st.show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+
+        });
+        help.setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/indexHelp.fxml"));
+            IndexHelp help = new IndexHelp();
+            loader.setController(help);
+            try {
+
+                Scene scene = new Scene(loader.load(), 800, 600);
+                Stage stage = new Stage();
+                stage.setTitle("Help");
+                stage.setScene(scene);
+                help.setPage("changepassword");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
         });
