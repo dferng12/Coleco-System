@@ -124,6 +124,9 @@ public class IndexStudent implements Initializable {
                 Scene scene = new Scene(root);
                 st.setScene(scene);
 
+                ChangePassword changePassword = loader.getController();
+                changePassword.setUser(this.student);
+
                 st.show();
             } catch (IOException e) {
                 e.printStackTrace();
