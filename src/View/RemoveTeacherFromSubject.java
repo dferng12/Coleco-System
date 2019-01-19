@@ -1,5 +1,6 @@
 package View;
 
+import Controller.Subjects;
 import Model.Subject;
 import Model.Teacher;
 import javafx.collections.FXCollections;
@@ -33,27 +34,27 @@ public class RemoveTeacherFromSubject implements Initializable {
     @FXML
     private Button help;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    private Subject subject;
+
+    public void setSubject(Subject subject){
+        this.subject = subject;
         ObservableList<Teacher> list = FXCollections.observableArrayList();
         Subject selectedSubject = IndexAdmin.getSelectedSubject();
         if(selectedSubject.getTeacher() != null){
-            list.addAll(selectedSubject.getTeacher());
-            teacherssubject.setItems(list);
+            list.add(selectedSubject.getTeacher());
         }
-        if(list.size() == 0){
-            Alert dialog = new Alert(Alert.AlertType.INFORMATION);
-            dialog.setTitle("Subject without teachers.");
-            dialog.setContentText("The subject "+selectedSubject.getName()+" does not have any teachers.");
-            dialog.setHeaderText(null);
-            dialog.showAndWait();
-        }
+        teacherssubject.setItems(list);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
         remove.setOnAction(event -> {
             Teacher teacher = teacherssubject.getSelectionModel().getSelectedItem();
-            DAOSubject dao = new DAOSubject();
+            Subjects subjects = new Subjects();
+
             if(teacher!=null){
-                dao.removeTeacher(selectedSubject);
+                subjects.removeTeacherFromSubject(subject);
                 teacherssubject.getItems().remove(teacher);
             }
         });

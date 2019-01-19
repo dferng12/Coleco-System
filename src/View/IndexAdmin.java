@@ -28,6 +28,7 @@ import Controller.Users;
 
 import java.io.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -259,8 +260,19 @@ public class IndexAdmin implements Initializable{
         });
 
         removesubject.setOnAction(event -> {
-            DAOSubject dao = new DAOSubject();
             Subject subject = listsubjects.getSelectionModel().getSelectedItem();
+            Subjects subjectsHandler = new Subjects();
+            DAOSubject dao = new DAOSubject();
+            ArrayList<Student> studentsToRemove = new ArrayList<>();
+            studentsToRemove.addAll(subject.getStudents());
+
+            for(Student student: studentsToRemove){
+                subjectsHandler.removeStudentFromSubject(student, subject);
+            }
+            if(subject.getTeacher() != null){
+                subjectsHandler.removeTeacherFromSubject(subject);
+            }
+
             dao.removeSubject(subject);
             listsubjects.getItems().remove(subject);
         });
@@ -270,6 +282,12 @@ public class IndexAdmin implements Initializable{
                 Alert dialog = new Alert(Alert.AlertType.ERROR);
                 dialog.setTitle("Subject not selected");
                 dialog.setContentText("Select a subject first to remove a student from it.");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
+            }else if(listsubjects.getSelectionModel().getSelectedItem().getStudents().size() == 0){
+                Alert dialog = new Alert(Alert.AlertType.ERROR);
+                dialog.setTitle("Subject without students");
+                dialog.setContentText("Subject doesn't have students.");
                 dialog.setHeaderText(null);
                 dialog.showAndWait();
             }else{
@@ -283,6 +301,9 @@ public class IndexAdmin implements Initializable{
 
                     Scene scene = new Scene(root);
                     st.setScene(scene);
+
+                    RemoveStudentFromSubject remove = loader.getController();
+                    remove.setSubject(selectedSubject);
 
                     st.show();
                 } catch (IOException e) {
@@ -299,6 +320,12 @@ public class IndexAdmin implements Initializable{
                 dialog.setContentText("Select a subject first to remove its teacher from it.");
                 dialog.setHeaderText(null);
                 dialog.showAndWait();
+            }else if(listsubjects.getSelectionModel().getSelectedItem().getTeacher() == null){
+                Alert dialog = new Alert(Alert.AlertType.ERROR);
+                dialog.setTitle("Subject without teacher");
+                dialog.setContentText("Subject doesn't have a teacher.");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
             }else{
                 selectedSubject = listsubjects.getSelectionModel().getSelectedItem();
                 Stage st =  (Stage) removestudentsubject.getScene().getWindow();
@@ -310,6 +337,9 @@ public class IndexAdmin implements Initializable{
 
                     Scene scene = new Scene(root);
                     st.setScene(scene);
+
+                    RemoveTeacherFromSubject remove = loader.getController();
+                    remove.setSubject(selectedSubject);
 
                     st.show();
                 } catch (IOException e) {
