@@ -326,6 +326,12 @@ public class IndexAdmin implements Initializable{
                 String savePath = selectedDirectory.getAbsolutePath() + "/backup.sql";
                 dao.createBackup(savePath);
 
+                Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+                dialog.setTitle("Information");
+                dialog.setContentText("Backup created as backup.sql");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
+
             }
         });
 
@@ -336,6 +342,29 @@ public class IndexAdmin implements Initializable{
                 String restoreFile = file.getAbsolutePath();
                 DAO dao = new DAO();
                 dao.restoreBackup(restoreFile);
+
+                Alert dialog = new Alert(Alert.AlertType.INFORMATION);
+                dialog.setTitle("Information");
+                dialog.setContentText("Backup restored");
+                dialog.setHeaderText(null);
+                dialog.showAndWait();
+
+                Stage st =  (Stage) logout.getScene().getWindow();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/auth.fxml"));
+                Region root;
+
+                try {
+                    root =loader.load();
+
+                    Scene scene = new Scene(root);
+                    st.setScene(scene);
+
+                    Auth auth = loader.getController();
+
+                    st.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

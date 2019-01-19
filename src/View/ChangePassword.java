@@ -93,11 +93,11 @@ public class ChangePassword implements Initializable {
 
                 try {
                     root =loader.load();
-                    IndexStudent indexStudent = new IndexStudent();
-                    indexStudent.setStudent((Student) user);
                     Scene scene = new Scene(root);
                     st.setScene(scene);
                     IndexStudent indexController = loader.getController();
+                    indexController.setStudent((Student) user);
+
                     st.show();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -108,11 +108,10 @@ public class ChangePassword implements Initializable {
                 Region root;
                 try {
                     root =loader.load();
-                    IndexTeacher indexTeacher = loader.getController();
-                    indexTeacher.setTeacher((Teacher) user);
                     Scene scene = new Scene(root);
                     st.setScene(scene);
                     IndexTeacher indexController = loader.getController();
+                    indexController.setTeacher((Teacher) user);
                     st.show();
                 } catch (IOException e) {
                     e.printStackTrace();
